@@ -1,25 +1,26 @@
 {
   "item": [
     {
-      "id": "6f39a924-083d-4ef5-ad36-df80c537b8ef",
-      "name": "Identity Providers",
+      "id": "3a686cab-9d7e-43f2-8906-b2a5efe71a2a",
+      "name": "Message Senders",
       "description": {
         "content": "",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "1cab2871-4222-48a6-ac41-536d571d77da",
-          "name": "List identity providers",
+          "id": "17a6037e-dd00-4baf-ad7d-b14f46e40f04",
+          "name": "List message notification senders",
           "request": {
-            "name": "List identity providers",
+            "name": "List message notification senders",
             "description": {
-              "content": "Retrieve a list of all identity providers.",
+              "content": "Retrieve a list of message notification senders.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "identity-providers"
+                "notification-senders",
+                "message"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -57,12 +58,13 @@
           },
           "response": [
             {
-              "id": "20623c52-a650-4d84-b3c5-01326055d5ac",
+              "id": "67f9fa27-e8e3-440f-b627-f9f5e412344a",
               "name": "OK",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "identity-providers"
+                    "notification-senders",
+                    "message"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -114,17 +116,18 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"type\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"type\": \"<string>\"\n  }\n]",
+              "body": "[\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"provider\": \"<string>\",\n    \"properties\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\",\n        \"is_secret\": \"<boolean>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\",\n        \"is_secret\": \"<boolean>\"\n      }\n    ]\n  },\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"provider\": \"<string>\",\n    \"properties\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\",\n        \"is_secret\": \"<boolean>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\",\n        \"is_secret\": \"<boolean>\"\n      }\n    ]\n  }\n]",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "6052023d-09d6-4c61-860c-556b47e57ad3",
+              "id": "6d459f29-8fc4-4d83-b345-6619cb7c4473",
               "name": "Internal Server Error: An unexpected error occurred while processing the request",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "identity-providers"
+                    "notification-senders",
+                    "message"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -176,7 +179,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"value\": \"<Error: Could not resolve allOf schema\"\n}",
+              "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"<string>\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -187,17 +190,18 @@
           }
         },
         {
-          "id": "be695ef7-acff-4e53-ac1f-b856bedfc191",
-          "name": "Create an identity provider",
+          "id": "a290cddf-b0d1-41ce-a5c7-6fc3221fadfe",
+          "name": "Create a new message notification sender",
           "request": {
-            "name": "Create an identity provider",
+            "name": "Create a new message notification sender",
             "description": {
-              "content": "Creates a new identity provider with the provided details.",
+              "content": "Create a new message notification sender with the provided details.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "identity-providers"
+                "notification-senders",
+                "message"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -238,7 +242,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"description\": \"<string>\",\n  \"properties\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    }\n  ]\n}",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"provider\": \"<string>\",\n  \"description\": \"<string>\",\n  \"properties\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    }\n  ]\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -248,12 +252,13 @@
           },
           "response": [
             {
-              "id": "7832fa38-b42a-4e36-a4e9-0a7863a28b45",
+              "id": "b39481ef-eeab-4c62-a017-dac8e6aab4eb",
               "name": "Created",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "identity-providers"
+                    "notification-senders",
+                    "message"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -297,7 +302,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"description\": \"<string>\",\n  \"properties\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    }\n  ]\n}",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"provider\": \"<string>\",\n  \"description\": \"<string>\",\n  \"properties\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    }\n  ]\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -313,17 +318,18 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"type\": \"<string>\",\n  \"properties\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    }\n  ]\n}",
+              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"provider\": \"<string>\",\n  \"properties\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    }\n  ]\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "50c92fe5-a149-4c8b-ac35-225ee3b67ae6",
-              "name": "Bad Request: The request body is malformed or contains invalid data.",
+              "id": "15bbd9af-4146-4500-8e58-74d49c562139",
+              "name": "Bad Request: The request body is malformed or contains invalid data",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "identity-providers"
+                    "notification-senders",
+                    "message"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -367,7 +373,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"description\": \"<string>\",\n  \"properties\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    }\n  ]\n}",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"provider\": \"<string>\",\n  \"description\": \"<string>\",\n  \"properties\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    }\n  ]\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -383,17 +389,18 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"value\": \"<Error: Could not resolve allOf schema\"\n}",
+              "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"<string>\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "3ebec3a7-cc45-4805-8e3a-8ea19320632e",
-              "name": "Conflict: An identity provider with the same name already exists.",
+              "id": "41e4a7b6-5c71-4c5a-a6de-2a7e2ba77ac3",
+              "name": "Conflict: A message notification sender with the same name already exists",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "identity-providers"
+                    "notification-senders",
+                    "message"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -437,7 +444,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"description\": \"<string>\",\n  \"properties\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    }\n  ]\n}",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"provider\": \"<string>\",\n  \"description\": \"<string>\",\n  \"properties\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    }\n  ]\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -453,17 +460,18 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"value\": \"<Error: Could not resolve allOf schema\"\n}",
+              "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"<string>\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "2fb47951-9381-439c-ab9a-69277e5fd95c",
-              "name": "Internal Server Error: An unexpected error occurred while processing the request.",
+              "id": "b6dce7d4-9bbc-4f97-b201-97ed2c1fc174",
+              "name": "Internal Server Error: An unexpected error occurred while processing the request",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "identity-providers"
+                    "notification-senders",
+                    "message"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -507,7 +515,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"description\": \"<string>\",\n  \"properties\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    }\n  ]\n}",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"provider\": \"<string>\",\n  \"description\": \"<string>\",\n  \"properties\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    }\n  ]\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -523,7 +531,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"value\": \"<Error: Could not resolve allOf schema\"\n}",
+              "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"<string>\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -534,17 +542,18 @@
           }
         },
         {
-          "id": "28079783-e976-446c-bb94-0a2573888c83",
-          "name": "Get an identity provider by ID",
+          "id": "129ee1ea-7ba7-4daf-99df-bde2807cf9f7",
+          "name": "Get a message notification sender by ID",
           "request": {
-            "name": "Get an identity provider by ID",
+            "name": "Get a message notification sender by ID",
             "description": {
-              "content": "Retrieve a specific identity provider using its ID.",
+              "content": "Retrieve a message notification sender by its unique identifier.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "identity-providers",
+                "notification-senders",
+                "message",
                 ":id"
               ],
               "host": [
@@ -557,7 +566,7 @@
                   "type": "any",
                   "value": "<string>",
                   "key": "id",
-                  "description": "(Required) Identity provider ID"
+                  "description": "(Required) Unique identifier of the message notification sender"
                 },
                 {
                   "description": {
@@ -590,12 +599,13 @@
           },
           "response": [
             {
-              "id": "81a40601-9a89-4dc7-bb26-514eb64e712e",
+              "id": "00a4706a-171d-409f-b4dd-a6555a0639b4",
               "name": "OK",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "identity-providers",
+                    "notification-senders",
+                    "message",
                     ":id"
                   ],
                   "host": [
@@ -608,7 +618,7 @@
                       "type": "any",
                       "value": "<string>",
                       "key": "id",
-                      "description": "(Required) Identity provider ID"
+                      "description": "(Required) Unique identifier of the message notification sender"
                     },
                     {
                       "description": {
@@ -655,17 +665,18 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"type\": \"<string>\",\n  \"properties\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    }\n  ]\n}",
+              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"provider\": \"<string>\",\n  \"properties\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    }\n  ]\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "29cde115-4a5c-4364-bc1e-4748712a5328",
-              "name": "Bad Request: The request body is malformed or contains invalid data.",
+              "id": "f0167728-7efb-48f1-88ea-87beb3cc1021",
+              "name": "Bad Request: Invalid sender ID provided",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "identity-providers",
+                    "notification-senders",
+                    "message",
                     ":id"
                   ],
                   "host": [
@@ -678,7 +689,7 @@
                       "type": "any",
                       "value": "<string>",
                       "key": "id",
-                      "description": "(Required) Identity provider ID"
+                      "description": "(Required) Unique identifier of the message notification sender"
                     },
                     {
                       "description": {
@@ -725,17 +736,18 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"value\": \"<Error: Could not resolve allOf schema\"\n}",
+              "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"<string>\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "57b6b391-5904-4009-b040-cc7ebeec51e5",
-              "name": "Not Found: The identity provider with the specified ID does not exist.",
+              "id": "a0b4ebf9-3d29-4785-91c3-53a7e9aeaf60",
+              "name": "Not Found: The specified message notification sender does not exist",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "identity-providers",
+                    "notification-senders",
+                    "message",
                     ":id"
                   ],
                   "host": [
@@ -748,7 +760,7 @@
                       "type": "any",
                       "value": "<string>",
                       "key": "id",
-                      "description": "(Required) Identity provider ID"
+                      "description": "(Required) Unique identifier of the message notification sender"
                     },
                     {
                       "description": {
@@ -795,17 +807,18 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"value\": \"<Error: Could not resolve allOf schema\"\n}",
+              "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"<string>\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "da81d012-7077-4cb5-a759-b8f0202d7fbb",
-              "name": "Internal Server Error: An unexpected error occurred while processing the request.",
+              "id": "13f6c62b-4fd1-438f-b7d4-36598e404bd7",
+              "name": "Internal Server Error: An unexpected error occurred while processing the request",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "identity-providers",
+                    "notification-senders",
+                    "message",
                     ":id"
                   ],
                   "host": [
@@ -818,7 +831,7 @@
                       "type": "any",
                       "value": "<string>",
                       "key": "id",
-                      "description": "(Required) Identity provider ID"
+                      "description": "(Required) Unique identifier of the message notification sender"
                     },
                     {
                       "description": {
@@ -865,7 +878,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"value\": \"<Error: Could not resolve allOf schema\"\n}",
+              "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"<string>\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -876,17 +889,18 @@
           }
         },
         {
-          "id": "11bbf1f5-134d-4487-8d96-38442d78ba8d",
-          "name": "Update an identity provider",
+          "id": "92797ad9-37f2-4426-987a-2498e408695d",
+          "name": "Update a message notification sender",
           "request": {
-            "name": "Update an identity provider",
+            "name": "Update a message notification sender",
             "description": {
-              "content": "Update the details of an existing identity provider.",
+              "content": "Update an existing message notification sender with the provided details.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "identity-providers",
+                "notification-senders",
+                "message",
                 ":id"
               ],
               "host": [
@@ -899,7 +913,7 @@
                   "type": "any",
                   "value": "<string>",
                   "key": "id",
-                  "description": "(Required) Identity provider ID"
+                  "description": "(Required) Unique identifier of the message notification sender to update"
                 },
                 {
                   "description": {
@@ -935,7 +949,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"description\": \"<string>\",\n  \"properties\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    }\n  ]\n}",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"provider\": \"<string>\",\n  \"description\": \"<string>\",\n  \"properties\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    }\n  ]\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -945,12 +959,13 @@
           },
           "response": [
             {
-              "id": "e8d6fa39-5758-45c4-a694-399b33e2f799",
-              "name": "OK",
+              "id": "bdd68e8f-839e-4b5a-bbbc-0e16dbfb31a5",
+              "name": "Updated successfully",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "identity-providers",
+                    "notification-senders",
+                    "message",
                     ":id"
                   ],
                   "host": [
@@ -963,7 +978,7 @@
                       "type": "any",
                       "value": "<string>",
                       "key": "id",
-                      "description": "(Required) Identity provider ID"
+                      "description": "(Required) Unique identifier of the message notification sender to update"
                     },
                     {
                       "description": {
@@ -1002,7 +1017,7 @@
                 "method": "PUT",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"description\": \"<string>\",\n  \"properties\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    }\n  ]\n}",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"provider\": \"<string>\",\n  \"description\": \"<string>\",\n  \"properties\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    }\n  ]\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -1018,17 +1033,18 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"type\": \"<string>\",\n  \"properties\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    }\n  ]\n}",
+              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"provider\": \"<string>\",\n  \"properties\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    }\n  ]\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "39a5145e-0f57-4ba9-8a23-f4e85e9c0507",
-              "name": "Bad Request: The request body is malformed or contains invalid data.",
+              "id": "464523e2-cb72-4c05-9dad-e5b8e5818c56",
+              "name": "Bad Request: The request body is malformed or contains invalid data",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "identity-providers",
+                    "notification-senders",
+                    "message",
                     ":id"
                   ],
                   "host": [
@@ -1041,7 +1057,7 @@
                       "type": "any",
                       "value": "<string>",
                       "key": "id",
-                      "description": "(Required) Identity provider ID"
+                      "description": "(Required) Unique identifier of the message notification sender to update"
                     },
                     {
                       "description": {
@@ -1080,7 +1096,7 @@
                 "method": "PUT",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"description\": \"<string>\",\n  \"properties\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    }\n  ]\n}",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"provider\": \"<string>\",\n  \"description\": \"<string>\",\n  \"properties\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    }\n  ]\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -1096,17 +1112,18 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"value\": \"<Error: Could not resolve allOf schema\"\n}",
+              "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"<string>\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "395e36b3-fad5-45c1-9b13-a8ad1383e9a2",
-              "name": "Not Found: The identity provider with the specified ID does not exist.",
+              "id": "acd629ed-f496-4200-b834-03f423a95110",
+              "name": "Not Found: The specified message notification sender does not exist",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "identity-providers",
+                    "notification-senders",
+                    "message",
                     ":id"
                   ],
                   "host": [
@@ -1119,7 +1136,7 @@
                       "type": "any",
                       "value": "<string>",
                       "key": "id",
-                      "description": "(Required) Identity provider ID"
+                      "description": "(Required) Unique identifier of the message notification sender to update"
                     },
                     {
                       "description": {
@@ -1158,7 +1175,7 @@
                 "method": "PUT",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"description\": \"<string>\",\n  \"properties\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    }\n  ]\n}",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"provider\": \"<string>\",\n  \"description\": \"<string>\",\n  \"properties\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    }\n  ]\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -1174,17 +1191,18 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"value\": \"<Error: Could not resolve allOf schema\"\n}",
+              "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"<string>\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "13a42696-c506-4a0e-8c09-8b960a513ead",
-              "name": "Conflict: An identity provider with the same name already exists.",
+              "id": "a01527eb-8b24-44b6-9c7c-555d6c20c9c4",
+              "name": "Internal Server Error: An unexpected error occurred while processing the request",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "identity-providers",
+                    "notification-senders",
+                    "message",
                     ":id"
                   ],
                   "host": [
@@ -1197,7 +1215,7 @@
                       "type": "any",
                       "value": "<string>",
                       "key": "id",
-                      "description": "(Required) Identity provider ID"
+                      "description": "(Required) Unique identifier of the message notification sender to update"
                     },
                     {
                       "description": {
@@ -1236,85 +1254,7 @@
                 "method": "PUT",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"description\": \"<string>\",\n  \"properties\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Conflict",
-              "code": 409,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"value\": \"<Error: Could not resolve allOf schema\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "3bb86f85-fa34-419f-8f7f-2bc6c8c2f8c8",
-              "name": "Internal Server Error: An unexpected error occurred while processing the request.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "identity-providers",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Identity provider ID"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{host}}",
-                      "key": "host"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{port}}",
-                      "key": "port"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"description\": \"<string>\",\n  \"properties\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    }\n  ]\n}",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"provider\": \"<string>\",\n  \"description\": \"<string>\",\n  \"properties\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\",\n      \"is_secret\": \"<boolean>\"\n    }\n  ]\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -1330,7 +1270,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"value\": \"<Error: Could not resolve allOf schema\"\n}",
+              "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"<string>\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -1341,17 +1281,18 @@
           }
         },
         {
-          "id": "a9fe608a-d8fd-49fc-98f4-f9c5b8f42b80",
-          "name": "Delete an identity provider",
+          "id": "4dcd1950-92af-4b7b-a568-0b060766c05b",
+          "name": "Delete a message notification sender",
           "request": {
-            "name": "Delete an identity provider",
+            "name": "Delete a message notification sender",
             "description": {
-              "content": "Delete an identity provider using its ID.",
+              "content": "Delete a message notification sender using its unique identifier.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "identity-providers",
+                "notification-senders",
+                "message",
                 ":id"
               ],
               "host": [
@@ -1364,7 +1305,7 @@
                   "type": "any",
                   "value": "<string>",
                   "key": "id",
-                  "description": "(Required) Identity provider ID"
+                  "description": "(Required) Unique identifier of the message notification sender to delete"
                 },
                 {
                   "description": {
@@ -1397,12 +1338,13 @@
           },
           "response": [
             {
-              "id": "5378dc26-301d-4477-9fff-c1aa18294988",
-              "name": "No Content",
+              "id": "f60c41c2-8b4c-4109-b76d-4aee4cf6471b",
+              "name": "No Content - Successfully deleted the message notification sender",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "identity-providers",
+                    "notification-senders",
+                    "message",
                     ":id"
                   ],
                   "host": [
@@ -1415,7 +1357,7 @@
                       "type": "any",
                       "value": "<string>",
                       "key": "id",
-                      "description": "(Required) Identity provider ID"
+                      "description": "(Required) Unique identifier of the message notification sender to delete"
                     },
                     {
                       "description": {
@@ -1463,12 +1405,13 @@
               "_postman_previewlanguage": "text"
             },
             {
-              "id": "ac3601db-ca05-48a7-917a-acc0bcf8f518",
-              "name": "Bad Request: The request body is malformed or contains invalid data.",
+              "id": "cf012bcf-6fc9-43a8-9683-71e76354253a",
+              "name": "Bad Request: Invalid sender ID provided",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "identity-providers",
+                    "notification-senders",
+                    "message",
                     ":id"
                   ],
                   "host": [
@@ -1481,7 +1424,7 @@
                       "type": "any",
                       "value": "<string>",
                       "key": "id",
-                      "description": "(Required) Identity provider ID"
+                      "description": "(Required) Unique identifier of the message notification sender to delete"
                     },
                     {
                       "description": {
@@ -1528,17 +1471,18 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"value\": \"<Error: Could not resolve allOf schema\"\n}",
+              "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"<string>\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "cfeed3d4-6f40-4c2f-a53a-ea8e60e61727",
-              "name": "Internal Server Error: An unexpected error occurred while processing the request.",
+              "id": "62121035-493e-4197-9c03-5eb397289b23",
+              "name": "Internal Server Error: An unexpected error occurred while processing the request",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "identity-providers",
+                    "notification-senders",
+                    "message",
                     ":id"
                   ],
                   "host": [
@@ -1551,7 +1495,7 @@
                       "type": "any",
                       "value": "<string>",
                       "key": "id",
-                      "description": "(Required) Identity provider ID"
+                      "description": "(Required) Unique identifier of the message notification sender to delete"
                     },
                     {
                       "description": {
@@ -1598,7 +1542,660 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"value\": \"<Error: Could not resolve allOf schema\"\n}",
+              "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "917abdd0-b8fb-4433-b312-0d64fd0e6420",
+      "name": "One Time Password (OTP)",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "264924c6-b2de-45c7-8316-db9de624b933",
+          "name": "Send a One Time Password (OTP)",
+          "request": {
+            "name": "Send a One Time Password (OTP)",
+            "description": {
+              "content": "Send a One Time Password (OTP) to a recipient using a specified message notification sender.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notification-senders",
+                "otp",
+                "send"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"recipient\": \"<string>\",\n  \"sender_id\": \"<string>\",\n  \"channel\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1c14cba9-7485-4a6d-81e0-478830659005",
+              "name": "OTP sent successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification-senders",
+                    "otp",
+                    "send"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"recipient\": \"<string>\",\n  \"sender_id\": \"<string>\",\n  \"channel\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"<string>\",\n  \"session_token\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1ce01d2e-a13a-4333-9bbb-904b909c0d74",
+              "name": "Bad Request: The request body is malformed or contains invalid data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification-senders",
+                    "otp",
+                    "send"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"recipient\": \"<string>\",\n  \"sender_id\": \"<string>\",\n  \"channel\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fd36a8bf-e11c-4234-bda5-9beaf75bd72b",
+              "name": "Not Found: The specified message notification sender does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification-senders",
+                    "otp",
+                    "send"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"recipient\": \"<string>\",\n  \"sender_id\": \"<string>\",\n  \"channel\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "85005931-f36f-4504-98dc-7707f0425e3b",
+              "name": "Internal Server Error: An unexpected error occurred while processing the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification-senders",
+                    "otp",
+                    "send"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"recipient\": \"<string>\",\n  \"sender_id\": \"<string>\",\n  \"channel\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "782742d9-50dd-4c1e-b925-7ae2ef26b9e2",
+          "name": "Verify a One Time Password (OTP)",
+          "request": {
+            "name": "Verify a One Time Password (OTP)",
+            "description": {
+              "content": "Verify a One Time Password (OTP) using the provided session token and OTP code.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notification-senders",
+                "otp",
+                "verify"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"session_token\": \"<string>\",\n  \"otp_code\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "44ab0e17-8106-4117-85d4-2ec06798d08f",
+              "name": "OTP verified successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification-senders",
+                    "otp",
+                    "verify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"session_token\": \"<string>\",\n  \"otp_code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8f26b08f-5409-4bdc-8edf-a27d15b3242f",
+              "name": "Bad Request: The request body is malformed or contains invalid data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification-senders",
+                    "otp",
+                    "verify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"session_token\": \"<string>\",\n  \"otp_code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "21551425-aa78-48d4-a7e3-9d4139a6e677",
+              "name": "Internal Server Error: An unexpected error occurred while processing the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification-senders",
+                    "otp",
+                    "verify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"session_token\": \"<string>\",\n  \"otp_code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"<string>\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -1660,11 +2257,11 @@
     ]
   },
   "info": {
-    "_postman_id": "e03606fe-e451-4553-a859-e7f712091ecd",
-    "name": "Identity Provider Management API",
+    "_postman_id": "0b48367f-02fd-4838-a573-dca8d98bbb10",
+    "name": "Notification Sender API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
-      "content": "This API is used to manage identity providers.",
+      "content": "This API is used to handle notification senders.",
       "type": "text/plain"
     }
   }
