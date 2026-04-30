@@ -71,7 +71,7 @@ func (suite *InitTestSuite) SetupTest() {
 	}
 	err := config.InitializeServerRuntime(".", testConfig)
 	if err != nil {
-		suite.T().Fatalf("Failed to initialize Thunder runtime: %v", err)
+		suite.T().Fatalf("Failed to initialize server runtime: %v", err)
 	}
 }
 

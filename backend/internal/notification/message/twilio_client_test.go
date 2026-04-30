@@ -48,7 +48,7 @@ func (suite *TwilioClientTestSuite) SetupSuite() {
 	}
 	err := config.InitializeServerRuntime("", testConfig)
 	if err != nil {
-		suite.T().Fatalf("Failed to initialize ThunderRuntime: %v", err)
+		suite.T().Fatalf("Failed to initialize server runtime: %v", err)
 	}
 }
 

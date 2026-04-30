@@ -53,7 +53,7 @@ func (suite *LayoutFileBasedStoreTestSuite) SetupSuite() {
 	}
 	config.ResetServerRuntime()
 	err := config.InitializeServerRuntime(tempDir, testConfig)
-	suite.Require().NoError(err, "Failed to initialize ThunderRuntime")
+	suite.Require().NoError(err, "Failed to initialize server runtime")
 }
 
 func (suite *LayoutFileBasedStoreTestSuite) TearDownSuite() {

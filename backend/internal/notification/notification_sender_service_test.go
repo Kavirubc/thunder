@@ -54,7 +54,7 @@ func (suite *NotificationSenderServiceTestSuite) SetupSuite() {
 		},
 	}
 	if err := config.InitializeServerRuntime("", testConfig); err != nil {
-		suite.T().Fatalf("Failed to initialize ThunderRuntime: %v", err)
+		suite.T().Fatalf("Failed to initialize server runtime: %v", err)
 	}
 }
 

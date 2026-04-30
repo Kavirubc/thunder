@@ -90,7 +90,7 @@ func (suite *ResourceLoaderTestSuite) SetupSuite() {
 		},
 	}
 	err := config.InitializeServerRuntime(tempThunderHome, testConfig)
-	suite.Require().NoError(err, "Failed to initialize ThunderRuntime")
+	suite.Require().NoError(err, "Failed to initialize server runtime")
 
 	// Create the resources directory structure
 	suite.resourcesDir = filepath.Join(tempThunderHome, "repository", "resources")

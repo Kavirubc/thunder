@@ -34,7 +34,7 @@ type ConfigTestSuite struct {
 
 // SetupSuite sets up the test suite once.
 func (suite *ConfigTestSuite) SetupSuite() {
-	// Reset thunder runtime to ensure clean state
+	// Reset server runtime to ensure clean state
 	config.ResetServerRuntime()
 	// Initialize runtime once for all tests in the suite
 	testConfig := &config.Config{}
@@ -46,7 +46,7 @@ func (suite *ConfigTestSuite) SetupSuite() {
 
 // TearDownSuite cleans up after the test suite.
 func (suite *ConfigTestSuite) TearDownSuite() {
-	// Reset thunder runtime to avoid state leakage to other test suites
+	// Reset server runtime to avoid state leakage to other test suites
 	config.ResetServerRuntime()
 }
 

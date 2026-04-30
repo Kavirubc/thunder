@@ -96,7 +96,7 @@ func (suite *SessionStoreTestSuite) SetupSuite() {
 	}
 	err := config.InitializeServerRuntime("", testConfig)
 	if err != nil {
-		suite.T().Fatalf("Failed to initialize ThunderRuntime: %v", err)
+		suite.T().Fatalf("Failed to initialize server runtime: %v", err)
 	}
 }
 
@@ -120,7 +120,7 @@ func (suite *SessionStoreTestSuite) TestNewSessionStore() {
 	}
 	err := config.InitializeServerRuntime("", testConfig)
 	if err != nil {
-		suite.T().Fatalf("Failed to initialize ThunderRuntime: %v", err)
+		suite.T().Fatalf("Failed to initialize server runtime: %v", err)
 	}
 
 	store := newSessionStore()

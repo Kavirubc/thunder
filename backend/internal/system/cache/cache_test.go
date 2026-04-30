@@ -55,7 +55,7 @@ func (suite *CacheTestSuite) SetupSuite() {
 	config.ResetServerRuntime()
 	err := config.InitializeServerRuntime("/test/thunder/home", mockConfig)
 	if err != nil {
-		suite.T().Fatal("Failed to initialize ThunderRuntime:", err)
+		suite.T().Fatal("Failed to initialize server runtime:", err)
 	}
 }
 

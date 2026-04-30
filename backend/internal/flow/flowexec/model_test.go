@@ -52,7 +52,7 @@ func TestModelTestSuite(t *testing.T) {
 	config.ResetServerRuntime()
 	err := config.InitializeServerRuntime("/test/thunder/home", testConfig)
 	if err != nil {
-		t.Fatalf("failed to initialize Thunder runtime: %v", err)
+		t.Fatalf("failed to initialize server runtime: %v", err)
 	}
 
 	suite.Run(t, new(ModelTestSuite))
