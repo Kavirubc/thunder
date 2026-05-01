@@ -54,12 +54,12 @@ func (s *ServiceTestSuite) SetupTest() {
 			},
 		},
 	}
-	_ = config.InitializeThunderRuntime("", testConfig)
+	_ = config.InitializeServerRuntime("", testConfig)
 	s.ctx = context.Background()
 }
 
 func (s *ServiceTestSuite) TearDownTest() {
-	config.ResetThunderRuntime()
+	config.ResetServerRuntime()
 }
 
 func (s *ServiceTestSuite) newTestApp() *inboundmodel.OAuthClient {

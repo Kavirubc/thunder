@@ -55,8 +55,8 @@ type pkiService struct {
 
 // newPKIService initializes and returns the cert service
 func newPKIService() (PKIServiceInterface, error) {
-	thunderRuntime := config.GetThunderRuntime()
-	keyConfigs := thunderRuntime.Config.Crypto.Keys
+	serverRuntime := config.GetServerRuntime()
+	keyConfigs := serverRuntime.Config.Crypto.Keys
 	if len(keyConfigs) == 0 {
 		return nil, errors.New("no key configurations found in the system configuration")
 	}
@@ -67,8 +67,8 @@ func newPKIService() (PKIServiceInterface, error) {
 			return nil, errors.New("key configuration has empty ID")
 		}
 
-		certFilePath := path.Join(thunderRuntime.ThunderHome, keyConfig.CertFile)
-		keyFilePath := path.Join(thunderRuntime.ThunderHome, keyConfig.KeyFile)
+		certFilePath := path.Join(serverRuntime.ServerHome, keyConfig.CertFile)
+		keyFilePath := path.Join(serverRuntime.ServerHome, keyConfig.KeyFile)
 
 		// Check if the certificate and key files exist.
 		if _, err := os.Stat(certFilePath); os.IsNotExist(err) {

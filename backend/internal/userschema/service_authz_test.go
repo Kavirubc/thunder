@@ -66,9 +66,9 @@ func initTestRuntime(t *testing.T) {
 	testConfig := &config.Config{
 		DeclarativeResources: config.DeclarativeResources{Enabled: false},
 	}
-	config.ResetThunderRuntime()
-	require.NoError(t, config.InitializeThunderRuntime("/tmp/test", testConfig))
-	t.Cleanup(config.ResetThunderRuntime)
+	config.ResetServerRuntime()
+	require.NoError(t, config.InitializeServerRuntime("/tmp/test", testConfig))
+	t.Cleanup(config.ResetServerRuntime)
 }
 
 // ---------------------------------------------------------------------------

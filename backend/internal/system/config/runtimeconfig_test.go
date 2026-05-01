@@ -39,7 +39,7 @@ func (suite *RuntimeConfigTestSuite) BeforeTest(suiteName, testName string) {
 	once = sync.Once{}
 }
 
-func (suite *RuntimeConfigTestSuite) TestInitializeThunderRuntime() {
+func (suite *RuntimeConfigTestSuite) TestInitializeServerRuntime() {
 	config := &Config{
 		Server: ServerConfig{
 			Hostname: "testhost",
@@ -51,19 +51,19 @@ func (suite *RuntimeConfigTestSuite) TestInitializeThunderRuntime() {
 		},
 	}
 
-	err := InitializeThunderRuntime("/test/thunder/home", config)
+	err := InitializeServerRuntime("/test/thunder/home", config)
 
 	assert.NoError(suite.T(), err)
 
 	runtime := runtimeConfig
 	assert.NotNil(suite.T(), runtime)
-	assert.Equal(suite.T(), "/test/thunder/home", runtime.ThunderHome)
+	assert.Equal(suite.T(), "/test/thunder/home", runtime.ServerHome)
 	assert.Equal(suite.T(), config.Server.Hostname, runtime.Config.Server.Hostname)
 	assert.Equal(suite.T(), config.Server.Port, runtime.Config.Server.Port)
 	assert.Equal(suite.T(), config.TLS.CertFile, runtime.Config.TLS.CertFile)
 }
 
-func (suite *RuntimeConfigTestSuite) TestInitializeThunderRuntimeOnlyOnce() {
+func (suite *RuntimeConfigTestSuite) TestInitializeServerRuntimeOnlyOnce() {
 	// First initialization
 	firstConfig := &Config{
 		Server: ServerConfig{
@@ -72,7 +72,7 @@ func (suite *RuntimeConfigTestSuite) TestInitializeThunderRuntimeOnlyOnce() {
 		},
 	}
 
-	err := InitializeThunderRuntime("/first/path", firstConfig)
+	err := InitializeServerRuntime("/first/path", firstConfig)
 	assert.NoError(suite.T(), err)
 
 	// Try second initialization
@@ -83,17 +83,17 @@ func (suite *RuntimeConfigTestSuite) TestInitializeThunderRuntimeOnlyOnce() {
 		},
 	}
 
-	err = InitializeThunderRuntime("/second/path", secondConfig)
+	err = InitializeServerRuntime("/second/path", secondConfig)
 	assert.NoError(suite.T(), err) // Should not return error
 
 	// Verify that the first initialization remains
-	runtime := GetThunderRuntime()
-	assert.Equal(suite.T(), "/first/path", runtime.ThunderHome)
+	runtime := GetServerRuntime()
+	assert.Equal(suite.T(), "/first/path", runtime.ServerHome)
 	assert.Equal(suite.T(), "firsthost", runtime.Config.Server.Hostname)
 	assert.Equal(suite.T(), 8000, runtime.Config.Server.Port)
 }
 
-func (suite *RuntimeConfigTestSuite) TestGetThunderRuntime() {
+func (suite *RuntimeConfigTestSuite) TestGetServerRuntime() {
 	config := &Config{
 		Server: ServerConfig{
 			Hostname: "gettest",
@@ -101,20 +101,20 @@ func (suite *RuntimeConfigTestSuite) TestGetThunderRuntime() {
 		},
 	}
 
-	err := InitializeThunderRuntime("/get/test/path", config)
+	err := InitializeServerRuntime("/get/test/path", config)
 	assert.NoError(suite.T(), err)
 
-	runtime := GetThunderRuntime()
+	runtime := GetServerRuntime()
 
 	assert.NotNil(suite.T(), runtime)
-	assert.Equal(suite.T(), "/get/test/path", runtime.ThunderHome)
+	assert.Equal(suite.T(), "/get/test/path", runtime.ServerHome)
 	assert.Equal(suite.T(), "gettest", runtime.Config.Server.Hostname)
 }
 
-func (suite *RuntimeConfigTestSuite) TestGetThunderRuntimePanic() {
+func (suite *RuntimeConfigTestSuite) TestGetServerRuntimePanic() {
 	runtimeConfig = nil
 
 	assert.Panics(suite.T(), func() {
-		GetThunderRuntime()
+		GetServerRuntime()
 	})
 }

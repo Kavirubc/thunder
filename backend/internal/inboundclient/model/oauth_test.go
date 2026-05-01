@@ -45,8 +45,8 @@ func TestOAuthClientTestSuite(t *testing.T) {
 }
 
 func (suite *OAuthClientTestSuite) SetupTest() {
-	sysconfig.ResetThunderRuntime()
-	suite.Require().NoError(sysconfig.InitializeThunderRuntime("/tmp/test", &sysconfig.Config{}))
+	sysconfig.ResetServerRuntime()
+	suite.Require().NoError(sysconfig.InitializeServerRuntime("/tmp/test", &sysconfig.Config{}))
 }
 
 func (suite *OAuthClientTestSuite) TestIsAllowedGrantType_AuthorizationCode() {
@@ -385,8 +385,8 @@ func TestOAuthHelperTestSuite(t *testing.T) {
 }
 
 func (suite *OAuthHelperTestSuite) SetupTest() {
-	sysconfig.ResetThunderRuntime()
-	suite.Require().NoError(sysconfig.InitializeThunderRuntime("/tmp/test", &sysconfig.Config{}))
+	sysconfig.ResetServerRuntime()
+	suite.Require().NoError(sysconfig.InitializeServerRuntime("/tmp/test", &sysconfig.Config{}))
 }
 
 func (suite *OAuthHelperTestSuite) TestIsAllowedGrantType_ValidGrantType() {
@@ -554,10 +554,10 @@ func (suite *OAuthHelperTestSuite) TestValidateRedirectURI_InvalidURLFormat() {
 }
 
 func (suite *OAuthClientTestSuite) TestRequiresPAR_GlobalConfigEnabled() {
-	sysconfig.ResetThunderRuntime()
+	sysconfig.ResetServerRuntime()
 	cfg := &sysconfig.Config{}
 	cfg.OAuth.PAR.RequirePAR = true
-	suite.Require().NoError(sysconfig.InitializeThunderRuntime("/tmp/test", cfg))
+	suite.Require().NoError(sysconfig.InitializeServerRuntime("/tmp/test", cfg))
 
 	c := &model.OAuthClient{RequirePushedAuthorizationRequests: false}
 	suite.True(c.RequiresPAR())
@@ -574,10 +574,10 @@ func (suite *OAuthClientTestSuite) TestRequiresPAR_BothFalse() {
 }
 
 func (suite *OAuthHelperTestSuite) TestMatchAnyRedirectURIPattern_WildcardEnabled_Matches() {
-	sysconfig.ResetThunderRuntime()
+	sysconfig.ResetServerRuntime()
 	cfg := &sysconfig.Config{}
 	cfg.OAuth.AllowWildcardRedirectURI = true
-	suite.Require().NoError(sysconfig.InitializeThunderRuntime("/tmp/test", cfg))
+	suite.Require().NoError(sysconfig.InitializeServerRuntime("/tmp/test", cfg))
 
 	err := model.ValidateRedirectURI(
 		[]string{"https://app.example.com/*"},

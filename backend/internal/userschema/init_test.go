@@ -68,7 +68,7 @@ func (suite *InitTestSuite) SetupTest() {
 }
 
 func (suite *InitTestSuite) TearDownTest() {
-	config.ResetThunderRuntime()
+	config.ResetServerRuntime()
 }
 
 // TestInitialize tests the Initialize function
@@ -84,7 +84,7 @@ func (suite *InitTestSuite) TestInitialize() {
 			},
 		},
 	}
-	err := config.InitializeThunderRuntime("", testConfig)
+	err := config.InitializeServerRuntime("", testConfig)
 	assert.NoError(suite.T(), err)
 
 	service, _, err := Initialize(suite.mux, suite.mockOUService, nil, suite.mockConsentService)
@@ -107,7 +107,7 @@ func (suite *InitTestSuite) TestRegisterRoutes_ListEndpoint() {
 			},
 		},
 	}
-	err := config.InitializeThunderRuntime("", testConfig)
+	err := config.InitializeServerRuntime("", testConfig)
 	assert.NoError(suite.T(), err)
 
 	_, _, err = Initialize(suite.mux, suite.mockOUService, nil, suite.mockConsentService)
@@ -134,7 +134,7 @@ func (suite *InitTestSuite) TestRegisterRoutes_CreateEndpoint() {
 			},
 		},
 	}
-	err := config.InitializeThunderRuntime("", testConfig)
+	err := config.InitializeServerRuntime("", testConfig)
 	assert.NoError(suite.T(), err)
 
 	_, _, err = Initialize(suite.mux, suite.mockOUService, nil, suite.mockConsentService)
@@ -169,7 +169,7 @@ func (suite *InitTestSuite) TestInitialize_DBTransactionerError() {
 		},
 	}
 
-	err := config.InitializeThunderRuntime("", testConfig)
+	err := config.InitializeServerRuntime("", testConfig)
 	assert.NoError(suite.T(), err)
 
 	_, _, err = Initialize(suite.mux, suite.mockOUService, nil, suite.mockConsentService)
@@ -192,7 +192,7 @@ func (suite *InitTestSuite) TestRegisterRoutes_GetByIDEndpoint() {
 			},
 		},
 	}
-	err := config.InitializeThunderRuntime("", testConfig)
+	err := config.InitializeServerRuntime("", testConfig)
 	assert.NoError(suite.T(), err)
 
 	_, _, err = Initialize(suite.mux, suite.mockOUService, nil, suite.mockConsentService)
@@ -219,7 +219,7 @@ func (suite *InitTestSuite) TestRegisterRoutes_UpdateEndpoint() {
 			},
 		},
 	}
-	err := config.InitializeThunderRuntime("", testConfig)
+	err := config.InitializeServerRuntime("", testConfig)
 	assert.NoError(suite.T(), err)
 
 	_, _, err = Initialize(suite.mux, suite.mockOUService, nil, suite.mockConsentService)
@@ -246,7 +246,7 @@ func (suite *InitTestSuite) TestRegisterRoutes_DeleteEndpoint() {
 			},
 		},
 	}
-	err := config.InitializeThunderRuntime("", testConfig)
+	err := config.InitializeServerRuntime("", testConfig)
 	assert.NoError(suite.T(), err)
 
 	_, _, err = Initialize(suite.mux, suite.mockOUService, nil, suite.mockConsentService)
@@ -273,7 +273,7 @@ func (suite *InitTestSuite) TestRegisterRoutes_CORSPreflight() {
 			},
 		},
 	}
-	err := config.InitializeThunderRuntime("", testConfig)
+	err := config.InitializeServerRuntime("", testConfig)
 	assert.NoError(suite.T(), err)
 
 	_, _, err = Initialize(suite.mux, suite.mockOUService, nil, suite.mockConsentService)
@@ -300,7 +300,7 @@ func (suite *InitTestSuite) TestRegisterRoutes_CORSPreflightByID() {
 			},
 		},
 	}
-	err := config.InitializeThunderRuntime("", testConfig)
+	err := config.InitializeServerRuntime("", testConfig)
 	assert.NoError(suite.T(), err)
 
 	_, _, err = Initialize(suite.mux, suite.mockOUService, nil, suite.mockConsentService)
@@ -502,8 +502,8 @@ func TestInitialize_Standalone(t *testing.T) {
 		},
 	}
 
-	config.ResetThunderRuntime()
-	err := config.InitializeThunderRuntime("", testConfig)
+	config.ResetServerRuntime()
+	err := config.InitializeServerRuntime("", testConfig)
 	assert.NoError(t, err)
 
 	mux := http.NewServeMux()
@@ -534,8 +534,8 @@ func TestInitializeStore_MutableMode(t *testing.T) {
 		},
 	}
 
-	config.ResetThunderRuntime()
-	err := config.InitializeThunderRuntime("", testConfig)
+	config.ResetServerRuntime()
+	err := config.InitializeServerRuntime("", testConfig)
 	assert.NoError(t, err)
 
 	store, transactioner, err := initializeStore(getUserSchemaStoreMode())
@@ -567,8 +567,8 @@ func TestInitializeStore_DeclarativeMode(t *testing.T) {
 		},
 	}
 
-	config.ResetThunderRuntime()
-	err := config.InitializeThunderRuntime("", testConfig)
+	config.ResetServerRuntime()
+	err := config.InitializeServerRuntime("", testConfig)
 	assert.NoError(t, err)
 
 	store, transactioner, err := initializeStore(getUserSchemaStoreMode())
@@ -598,8 +598,8 @@ func TestInitializeStore_CompositeMode(t *testing.T) {
 		},
 	}
 
-	config.ResetThunderRuntime()
-	err := config.InitializeThunderRuntime("", testConfig)
+	config.ResetServerRuntime()
+	err := config.InitializeServerRuntime("", testConfig)
 	assert.NoError(t, err)
 
 	store, transactioner, err := initializeStore(getUserSchemaStoreMode())
@@ -631,8 +631,8 @@ func TestInitializeStore_DefaultFallbackToMutable(t *testing.T) {
 		},
 	}
 
-	config.ResetThunderRuntime()
-	err := config.InitializeThunderRuntime("", testConfig)
+	config.ResetServerRuntime()
+	err := config.InitializeServerRuntime("", testConfig)
 	assert.NoError(t, err)
 
 	store, transactioner, err := initializeStore(getUserSchemaStoreMode())
@@ -664,8 +664,8 @@ func TestInitializeStore_GlobalDeclarativeEnabled(t *testing.T) {
 		},
 	}
 
-	config.ResetThunderRuntime()
-	err := config.InitializeThunderRuntime("", testConfig)
+	config.ResetServerRuntime()
+	err := config.InitializeServerRuntime("", testConfig)
 	assert.NoError(t, err)
 
 	store, transactioner, err := initializeStore(getUserSchemaStoreMode())
@@ -695,8 +695,8 @@ func TestInitialize_MutableMode(t *testing.T) {
 		},
 	}
 
-	config.ResetThunderRuntime()
-	err := config.InitializeThunderRuntime("", testConfig)
+	config.ResetServerRuntime()
+	err := config.InitializeServerRuntime("", testConfig)
 	assert.NoError(t, err)
 
 	mux := http.NewServeMux()
@@ -734,8 +734,8 @@ func TestInitialize_StoreModes(t *testing.T) {
 				},
 			}
 
-			config.ResetThunderRuntime()
-			err := config.InitializeThunderRuntime("", testConfig)
+			config.ResetServerRuntime()
+			err := config.InitializeServerRuntime("", testConfig)
 			assert.NoError(t, err)
 
 			mux := http.NewServeMux()
@@ -1127,10 +1127,10 @@ func TestInitialize_WithDeclarativeResourcesEnabled_InvalidYAML(t *testing.T) {
 		},
 	}
 
-	config.ResetThunderRuntime()
-	err = config.InitializeThunderRuntime(tmpDir, testConfig)
+	config.ResetServerRuntime()
+	err = config.InitializeServerRuntime(tmpDir, testConfig)
 	assert.NoError(t, err)
-	defer config.ResetThunderRuntime()
+	defer config.ResetServerRuntime()
 
 	mux := http.NewServeMux()
 	mockOUService := oumock.NewOrganizationUnitServiceInterfaceMock(t)
@@ -1187,10 +1187,10 @@ schema: |
 		},
 	}
 
-	config.ResetThunderRuntime()
-	err = config.InitializeThunderRuntime(tmpDir, testConfig)
+	config.ResetServerRuntime()
+	err = config.InitializeServerRuntime(tmpDir, testConfig)
 	assert.NoError(t, err)
-	defer config.ResetThunderRuntime()
+	defer config.ResetServerRuntime()
 
 	mux := http.NewServeMux()
 	mockOUService := oumock.NewOrganizationUnitServiceInterfaceMock(t)
@@ -1246,10 +1246,10 @@ schema: |
 		},
 	}
 
-	config.ResetThunderRuntime()
-	err = config.InitializeThunderRuntime(tmpDir, testConfig)
+	config.ResetServerRuntime()
+	err = config.InitializeServerRuntime(tmpDir, testConfig)
 	assert.NoError(t, err)
-	defer config.ResetThunderRuntime()
+	defer config.ResetServerRuntime()
 
 	mux := http.NewServeMux()
 	mockOUService := oumock.NewOrganizationUnitServiceInterfaceMock(t)
@@ -1321,10 +1321,10 @@ schema: |
 		},
 	}
 
-	config.ResetThunderRuntime()
-	err = config.InitializeThunderRuntime(tmpDir, testConfig)
+	config.ResetServerRuntime()
+	err = config.InitializeServerRuntime(tmpDir, testConfig)
 	assert.NoError(t, err)
-	defer config.ResetThunderRuntime()
+	defer config.ResetServerRuntime()
 
 	mux := http.NewServeMux()
 	mockOUService := oumock.NewOrganizationUnitServiceInterfaceMock(t)

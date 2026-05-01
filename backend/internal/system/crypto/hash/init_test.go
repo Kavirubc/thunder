@@ -46,8 +46,8 @@ func (suite *InitTestSuite) TestInitialize() {
 			},
 		},
 	}
-	config.ResetThunderRuntime()
-	_ = config.InitializeThunderRuntime("/test/thunder/home", testConfig)
+	config.ResetServerRuntime()
+	_ = config.InitializeServerRuntime("/test/thunder/home", testConfig)
 
 	service, err := Initialize()
 

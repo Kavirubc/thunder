@@ -70,7 +70,7 @@ func (suite *RuntimeCryptoServiceTestSuite) SetupSuite() {
 
 func (suite *RuntimeCryptoServiceTestSuite) SetupTest() {
 	resetSingleton()
-	config.ResetThunderRuntime()
+	config.ResetServerRuntime()
 	suite.pkiMock = pkimock.NewPKIServiceInterfaceMock(suite.T())
 	testConfig := &config.Config{
 		Crypto: config.CryptoConfig{
@@ -79,7 +79,7 @@ func (suite *RuntimeCryptoServiceTestSuite) SetupTest() {
 			},
 		},
 	}
-	err := config.InitializeThunderRuntime("/test/thunder/home", testConfig)
+	err := config.InitializeServerRuntime("/test/thunder/home", testConfig)
 	suite.NoError(err)
 }
 

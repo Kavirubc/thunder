@@ -78,9 +78,9 @@ func (suite *ExportServiceTestSuite) SetupTest() {
 	// Create temporary directory
 	tempDir := suite.T().TempDir()
 
-	// Initialize ThunderRuntime with declarative mode disabled
-	// Use just the filename since InitializeThunderRuntime will prepend the base path
-	config.ResetThunderRuntime()
+	// Initialize server runtime with declarative mode disabled
+	// Use just the filename since InitializeServerRuntime will prepend the base path
+	config.ResetServerRuntime()
 	testConfig := &config.Config{
 		Crypto: config.CryptoConfig{
 			Encryption: config.EncryptionConfig{
@@ -91,7 +91,7 @@ func (suite *ExportServiceTestSuite) SetupTest() {
 			Enabled: false,
 		},
 	}
-	_ = config.InitializeThunderRuntime(tempDir, testConfig)
+	_ = config.InitializeServerRuntime(tempDir, testConfig)
 
 	suite.appServiceMock = applicationmock.NewApplicationServiceInterfaceMock(suite.T())
 	suite.idpServiceMock = idpmock.NewIDPServiceInterfaceMock(suite.T())
@@ -115,7 +115,7 @@ func (suite *ExportServiceTestSuite) SetupTest() {
 }
 
 func (suite *ExportServiceTestSuite) TearDownTest() {
-	config.ResetThunderRuntime()
+	config.ResetServerRuntime()
 }
 
 // TestExportServiceTestSuite runs the test suite.

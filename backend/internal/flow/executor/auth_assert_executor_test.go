@@ -112,11 +112,11 @@ func createMockExecutorSimple(t *testing.T, name string,
 func initializeTestRuntime() error {
 	testConfig := &config.Config{
 		JWT: config.JWTConfig{
-			Issuer:         "https://test.thunder.io",
+			Issuer:         "https://auth.example.com",
 			ValidityPeriod: 3600,
 		},
 	}
-	return config.InitializeThunderRuntime("/tmp/test", testConfig)
+	return config.InitializeServerRuntime("/tmp/test", testConfig)
 }
 
 func (suite *AuthAssertExecutorTestSuite) TestNewAuthAssertExecutor() {
@@ -581,7 +581,7 @@ func (suite *AuthAssertExecutorTestSuite) TestExecute_WithCustomTokenConfig() {
 		},
 	}
 
-	suite.mockJWTService.On("GenerateJWT", "user-123", "https://test.thunder.io", int64(7200),
+	suite.mockJWTService.On("GenerateJWT", "user-123", "https://auth.example.com", int64(7200),
 		mock.Anything, mock.Anything, mock.Anything).Return("jwt-token", int64(7200), nil)
 
 	resp, err := suite.executor.Execute(ctx)

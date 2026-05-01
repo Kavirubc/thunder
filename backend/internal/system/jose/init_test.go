@@ -52,7 +52,7 @@ func (suite *JOSEInitTestSuite) SetupTest() {
 	suite.testPrivateKey, err = rsa.GenerateKey(rand.Reader, 2048)
 	assert.NoError(suite.T(), err)
 
-	// Initialize ThunderRuntime config for testing
+	// Initialize server runtime config for testing
 	testConfig := &config.Config{
 		JWT: config.JWTConfig{
 			PreferredKeyID: "test-key-id",
@@ -62,7 +62,7 @@ func (suite *JOSEInitTestSuite) SetupTest() {
 			Leeway:         300,
 		},
 	}
-	err = config.InitializeThunderRuntime("/tmp/test", testConfig)
+	err = config.InitializeServerRuntime("/tmp/test", testConfig)
 	assert.NoError(suite.T(), err)
 }
 

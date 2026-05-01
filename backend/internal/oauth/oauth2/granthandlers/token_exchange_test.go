@@ -70,12 +70,12 @@ func TestTokenExchangeGrantHandlerSuite(t *testing.T) {
 func (suite *TokenExchangeGrantHandlerTestSuite) SetupTest() {
 	testConfig := &config.Config{
 		JWT: config.JWTConfig{
-			Issuer:         "https://test.thunder.io",
+			Issuer:         "https://auth.example.com",
 			ValidityPeriod: 3600,
 			Audience:       "application", // Default audience for tests
 		},
 	}
-	err := config.InitializeThunderRuntime("", testConfig)
+	err := config.InitializeServerRuntime("", testConfig)
 	assert.NoError(suite.T(), err)
 
 	suite.mockJWTService = jwtmock.NewJWTServiceInterfaceMock(suite.T())
@@ -115,9 +115,9 @@ func (suite *TokenExchangeGrantHandlerTestSuite) SetupTest() {
 
 // getDefaultAudience is a helper function to get the configured default audience from runtime.
 func (suite *TokenExchangeGrantHandlerTestSuite) getDefaultAudience() string {
-	runtime := config.GetThunderRuntime()
+	runtime := config.GetServerRuntime()
 	if runtime == nil {
-		suite.T().Skip("ThunderRuntime not initialized")
+		suite.T().Skip("Server runtime not initialized")
 		return ""
 	}
 	defaultAudience := runtime.Config.JWT.Audience
@@ -1013,7 +1013,7 @@ func (suite *TokenExchangeGrantHandlerTestSuite) TestHandleGrant_UsesDefaultConf
 	now := time.Now().Unix()
 	subjectToken := suite.createTestJWT(map[string]interface{}{
 		"sub": "user123",
-		"iss": "https://test.thunder.io", // Use default config issuer since oauthApp has no Token config
+		"iss": "https://auth.example.com", // Use default config issuer since oauthApp has no Token config
 		"exp": float64(now + 3600),
 		"nbf": float64(now - 60),
 	})

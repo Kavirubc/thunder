@@ -52,11 +52,11 @@ func TestConsentEnforcerServiceTestSuite(t *testing.T) {
 func (s *ConsentEnforcerServiceTestSuite) SetupSuite() {
 	testConfig := &config.Config{
 		JWT: config.JWTConfig{
-			Issuer:         "https://test.thunder.io",
+			Issuer:         "https://auth.example.com",
 			ValidityPeriod: 3600,
 		},
 	}
-	_ = config.InitializeThunderRuntime("/tmp/test", testConfig)
+	_ = config.InitializeServerRuntime("/tmp/test", testConfig)
 }
 
 func (s *ConsentEnforcerServiceTestSuite) SetupTest() {

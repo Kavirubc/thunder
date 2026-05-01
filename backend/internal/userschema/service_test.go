@@ -78,16 +78,16 @@ func newConsentServiceMockDisabled(t interface {
 }
 
 func TestCreateUserSchemaReturnsErrorWhenOrganizationUnitMissing(t *testing.T) {
-	// Initialize ThunderRuntime with default config
+	// Initialize server runtime with default config
 	testConfig := &config.Config{
 		DeclarativeResources: config.DeclarativeResources{
 			Enabled: false,
 		},
 	}
-	config.ResetThunderRuntime()
-	err := config.InitializeThunderRuntime("/tmp/test", testConfig)
+	config.ResetServerRuntime()
+	err := config.InitializeServerRuntime("/tmp/test", testConfig)
 	require.NoError(t, err)
-	defer config.ResetThunderRuntime()
+	defer config.ResetServerRuntime()
 
 	storeMock := newUserSchemaStoreInterfaceMock(t)
 	ouServiceMock := oumock.NewOrganizationUnitServiceInterfaceMock(t)
@@ -118,16 +118,16 @@ func TestCreateUserSchemaReturnsErrorWhenOrganizationUnitMissing(t *testing.T) {
 }
 
 func TestCreateUserSchemaReturnsInternalErrorWhenOUValidationFails(t *testing.T) {
-	// Initialize ThunderRuntime with default config
+	// Initialize server runtime with default config
 	testConfig := &config.Config{
 		DeclarativeResources: config.DeclarativeResources{
 			Enabled: false,
 		},
 	}
-	config.ResetThunderRuntime()
-	err := config.InitializeThunderRuntime("/tmp/test", testConfig)
+	config.ResetServerRuntime()
+	err := config.InitializeServerRuntime("/tmp/test", testConfig)
 	require.NoError(t, err)
-	defer config.ResetThunderRuntime()
+	defer config.ResetServerRuntime()
 
 	storeMock := newUserSchemaStoreInterfaceMock(t)
 	ouServiceMock := oumock.NewOrganizationUnitServiceInterfaceMock(t)
@@ -158,16 +158,16 @@ func TestCreateUserSchemaReturnsInternalErrorWhenOUValidationFails(t *testing.T)
 }
 
 func TestUpdateUserSchemaReturnsErrorWhenOrganizationUnitMissing(t *testing.T) {
-	// Initialize ThunderRuntime with default config
+	// Initialize server runtime with default config
 	testConfig := &config.Config{
 		DeclarativeResources: config.DeclarativeResources{
 			Enabled: false,
 		},
 	}
-	config.ResetThunderRuntime()
-	err := config.InitializeThunderRuntime("/tmp/test", testConfig)
+	config.ResetServerRuntime()
+	err := config.InitializeServerRuntime("/tmp/test", testConfig)
 	require.NoError(t, err)
-	defer config.ResetThunderRuntime()
+	defer config.ResetServerRuntime()
 
 	storeMock := newUserSchemaStoreInterfaceMock(t)
 	ouServiceMock := oumock.NewOrganizationUnitServiceInterfaceMock(t)
@@ -979,10 +979,10 @@ func TestDeleteUserSchema(t *testing.T) {
 					Enabled: false,
 				},
 			}
-			config.ResetThunderRuntime()
-			err := config.InitializeThunderRuntime("/tmp/test", testConfig)
+			config.ResetServerRuntime()
+			err := config.InitializeServerRuntime("/tmp/test", testConfig)
 			require.NoError(t, err)
-			defer config.ResetThunderRuntime()
+			defer config.ResetServerRuntime()
 
 			storeMock := newUserSchemaStoreInterfaceMock(t)
 			storeMock.On("GetUserSchemaByID", mock.Anything, tc.schemaID).Return(UserSchema{
@@ -1108,10 +1108,10 @@ func TestCreateUserSchemaReturnsErrorForInvalidDisplayAttribute(t *testing.T) {
 			Enabled: false,
 		},
 	}
-	config.ResetThunderRuntime()
-	err := config.InitializeThunderRuntime("/tmp/test", testConfig)
+	config.ResetServerRuntime()
+	err := config.InitializeServerRuntime("/tmp/test", testConfig)
 	require.NoError(t, err)
-	defer config.ResetThunderRuntime()
+	defer config.ResetServerRuntime()
 
 	storeMock := newUserSchemaStoreInterfaceMock(t)
 
@@ -1140,10 +1140,10 @@ func TestUpdateUserSchemaReturnsErrorForInvalidDisplayAttribute(t *testing.T) {
 			Enabled: false,
 		},
 	}
-	config.ResetThunderRuntime()
-	err := config.InitializeThunderRuntime("/tmp/test", testConfig)
+	config.ResetServerRuntime()
+	err := config.InitializeServerRuntime("/tmp/test", testConfig)
 	require.NoError(t, err)
-	defer config.ResetThunderRuntime()
+	defer config.ResetServerRuntime()
 
 	storeMock := newUserSchemaStoreInterfaceMock(t)
 	storeMock.On("IsUserSchemaDeclarative", "schema-id").Return(false).Once()

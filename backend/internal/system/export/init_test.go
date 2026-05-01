@@ -61,7 +61,7 @@ func (suite *InitTestSuite) SetupTest() {
 	suite.mockNotificationService = notificationmock.NewNotificationSenderMgtSvcInterfaceMock(suite.T())
 	suite.mockUserSchemaService = userschemamock.NewUserSchemaServiceInterfaceMock(suite.T())
 	// Initialize config for CORS middleware
-	config.ResetThunderRuntime()
+	config.ResetServerRuntime()
 	var allowedOrigins cors.OriginEntries
 	suite.Require().NoError(yaml.Unmarshal([]byte(`
 - https://example.com
@@ -73,7 +73,7 @@ func (suite *InitTestSuite) SetupTest() {
 	if err := cors.InitializeMatcher(testConfig.CORS.AllowedOrigins); err != nil {
 		suite.T().Fatalf("Failed to initialize CORS matcher: %v", err)
 	}
-	err := config.InitializeThunderRuntime("/tmp/test", testConfig)
+	err := config.InitializeServerRuntime("/tmp/test", testConfig)
 	if err != nil {
 		suite.T().Fatalf("Failed to initialize config: %v", err)
 	}
@@ -81,7 +81,7 @@ func (suite *InitTestSuite) SetupTest() {
 
 func (suite *InitTestSuite) TearDownTest() {
 	// Reset config to clear singleton state for next test
-	config.ResetThunderRuntime()
+	config.ResetServerRuntime()
 }
 
 func TestInitTestSuite(t *testing.T) {
@@ -356,7 +356,7 @@ func BenchmarkRegisterRoutes(b *testing.B) {
 // TestInitialize_Standalone tests Initialize function without suite dependencies
 func TestInitialize_Standalone(t *testing.T) {
 	// Setup config for CORS middleware
-	config.ResetThunderRuntime()
+	config.ResetServerRuntime()
 	var allowedOrigins cors.OriginEntries
 	assert.NoError(t, yaml.Unmarshal([]byte(`
 - https://example.com
@@ -366,9 +366,9 @@ func TestInitialize_Standalone(t *testing.T) {
 		CORS: config.CORSConfig{AllowedOrigins: allowedOrigins},
 	}
 	assert.NoError(t, cors.InitializeMatcher(testConfig.CORS.AllowedOrigins))
-	err := config.InitializeThunderRuntime("/tmp/test", testConfig)
+	err := config.InitializeServerRuntime("/tmp/test", testConfig)
 	assert.NoError(t, err)
-	defer config.ResetThunderRuntime()
+	defer config.ResetServerRuntime()
 
 	mockAppService := applicationmock.NewApplicationServiceInterfaceMock(t)
 	mockIDPService := idpmock.NewIDPServiceInterfaceMock(t)
@@ -388,7 +388,7 @@ func TestInitialize_Standalone(t *testing.T) {
 // TestRegisterRoutes_Standalone tests route registration without suite dependencies
 func TestRegisterRoutes_Standalone(t *testing.T) {
 	// Setup config for CORS middleware
-	config.ResetThunderRuntime()
+	config.ResetServerRuntime()
 	var allowedOrigins cors.OriginEntries
 	assert.NoError(t, yaml.Unmarshal([]byte(`
 - https://example.com
@@ -398,9 +398,9 @@ func TestRegisterRoutes_Standalone(t *testing.T) {
 		CORS: config.CORSConfig{AllowedOrigins: allowedOrigins},
 	}
 	assert.NoError(t, cors.InitializeMatcher(testConfig.CORS.AllowedOrigins))
-	err := config.InitializeThunderRuntime("/tmp/test", testConfig)
+	err := config.InitializeServerRuntime("/tmp/test", testConfig)
 	assert.NoError(t, err)
-	defer config.ResetThunderRuntime()
+	defer config.ResetServerRuntime()
 
 	mockAppService := applicationmock.NewApplicationServiceInterfaceMock(t)
 	mockIDPService := idpmock.NewIDPServiceInterfaceMock(t)
@@ -420,7 +420,7 @@ func TestRegisterRoutes_Standalone(t *testing.T) {
 // TestRouteHandling_Standalone tests that routes are properly handled
 func TestRouteHandling_Standalone(t *testing.T) {
 	// Setup config for CORS middleware
-	config.ResetThunderRuntime()
+	config.ResetServerRuntime()
 	var allowedOrigins cors.OriginEntries
 	assert.NoError(t, yaml.Unmarshal([]byte(`
 - https://example.com
@@ -430,9 +430,9 @@ func TestRouteHandling_Standalone(t *testing.T) {
 		CORS: config.CORSConfig{AllowedOrigins: allowedOrigins},
 	}
 	assert.NoError(t, cors.InitializeMatcher(testConfig.CORS.AllowedOrigins))
-	err := config.InitializeThunderRuntime("/tmp/test", testConfig)
+	err := config.InitializeServerRuntime("/tmp/test", testConfig)
 	assert.NoError(t, err)
-	defer config.ResetThunderRuntime()
+	defer config.ResetServerRuntime()
 
 	mockAppService := applicationmock.NewApplicationServiceInterfaceMock(t)
 	mockIDPService := idpmock.NewIDPServiceInterfaceMock(t)
@@ -480,7 +480,7 @@ func TestRouteHandling_Standalone(t *testing.T) {
 // TestCORSConfiguration_Standalone tests CORS configuration without suite
 func TestCORSConfiguration_Standalone(t *testing.T) {
 	// Setup config for CORS middleware
-	config.ResetThunderRuntime()
+	config.ResetServerRuntime()
 	var allowedOrigins cors.OriginEntries
 	assert.NoError(t, yaml.Unmarshal([]byte(`
 - https://example.com
@@ -490,9 +490,9 @@ func TestCORSConfiguration_Standalone(t *testing.T) {
 		CORS: config.CORSConfig{AllowedOrigins: allowedOrigins},
 	}
 	assert.NoError(t, cors.InitializeMatcher(testConfig.CORS.AllowedOrigins))
-	err := config.InitializeThunderRuntime("/tmp/test", testConfig)
+	err := config.InitializeServerRuntime("/tmp/test", testConfig)
 	assert.NoError(t, err)
-	defer config.ResetThunderRuntime()
+	defer config.ResetServerRuntime()
 
 	mockAppService := applicationmock.NewApplicationServiceInterfaceMock(t)
 	mockIDPService := idpmock.NewIDPServiceInterfaceMock(t)

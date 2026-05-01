@@ -54,7 +54,7 @@ func TestTokenValidatorTestSuite(t *testing.T) {
 }
 
 func (suite *TokenValidatorTestSuite) SetupTest() {
-	config.ResetThunderRuntime()
+	config.ResetServerRuntime()
 
 	testConfig := &config.Config{
 		JWT: config.JWTConfig{
@@ -64,7 +64,7 @@ func (suite *TokenValidatorTestSuite) SetupTest() {
 			Leeway:         30,            // 30 seconds leeway for clock skew
 		},
 	}
-	_ = config.InitializeThunderRuntime("test", testConfig)
+	_ = config.InitializeServerRuntime("test", testConfig)
 
 	suite.mockJWTService = jwtmock.NewJWTServiceInterfaceMock(suite.T())
 	suite.validator = &tokenValidator{
@@ -95,9 +95,9 @@ func (suite *TokenValidatorTestSuite) createTestJWT(claims map[string]interface{
 // getDefaultAudience is a helper function to get the configured default audience from runtime.
 // It skips the test if the runtime is not initialized or the audience is not configured.
 func (suite *TokenValidatorTestSuite) getDefaultAudience() string {
-	runtime := config.GetThunderRuntime()
+	runtime := config.GetServerRuntime()
 	if runtime == nil {
-		suite.T().Skip("ThunderRuntime not initialized")
+		suite.T().Skip("Server runtime not initialized")
 		return ""
 	}
 	defaultAudience := runtime.Config.JWT.Audience
@@ -577,9 +577,9 @@ func (suite *TokenValidatorTestSuite) TestValidateSubjectToken_Security_RejectsT
 
 func (suite *TokenValidatorTestSuite) TestValidateSubjectToken_EdgeCase_VeryLongToken() {
 	// Get the configured default audience from runtime
-	runtime := config.GetThunderRuntime()
+	runtime := config.GetServerRuntime()
 	if runtime == nil {
-		suite.T().Skip("ThunderRuntime not initialized")
+		suite.T().Skip("Server runtime not initialized")
 		return
 	}
 	defaultAudience := runtime.Config.JWT.Audience
@@ -1629,7 +1629,7 @@ func (suite *TokenValidatorTestSuite) TestValidateSubjectToken_Leeway_Expiration
 
 	for _, tc := range testCases {
 		suite.Run(tc.name, func() {
-			config.ResetThunderRuntime()
+			config.ResetServerRuntime()
 			testConfig := &config.Config{
 				JWT: config.JWTConfig{
 					Issuer:         "https://thunder.io",
@@ -1638,7 +1638,7 @@ func (suite *TokenValidatorTestSuite) TestValidateSubjectToken_Leeway_Expiration
 					Leeway:         tc.leeway,
 				},
 			}
-			_ = config.InitializeThunderRuntime("test", testConfig)
+			_ = config.InitializeServerRuntime("test", testConfig)
 
 			now := time.Now().Unix()
 			claims := map[string]interface{}{
@@ -1662,7 +1662,7 @@ func (suite *TokenValidatorTestSuite) TestValidateSubjectToken_Leeway_Expiration
 
 func (suite *TokenValidatorTestSuite) TestValidateSubjectToken_Leeway_ExpJustInsideBoundary_ShouldPass() {
 	// Reset and test with 30 second leeway
-	config.ResetThunderRuntime()
+	config.ResetServerRuntime()
 	testConfig := &config.Config{
 		JWT: config.JWTConfig{
 			Issuer:         "https://thunder.io",
@@ -1671,7 +1671,7 @@ func (suite *TokenValidatorTestSuite) TestValidateSubjectToken_Leeway_ExpJustIns
 			Leeway:         30, // 30 seconds leeway
 		},
 	}
-	_ = config.InitializeThunderRuntime("test", testConfig)
+	_ = config.InitializeServerRuntime("test", testConfig)
 
 	defaultAudience := suite.getDefaultAudience()
 

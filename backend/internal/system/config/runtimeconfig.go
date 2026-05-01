@@ -22,40 +22,40 @@ import (
 	"sync"
 )
 
-// ThunderRuntime holds the runtime configuration for the server.
-type ThunderRuntime struct {
-	ThunderHome string `yaml:"thunder_home"`
-	Config      Config `yaml:"config"`
+// ServerRuntime holds the runtime configuration for the server.
+type ServerRuntime struct {
+	ServerHome string `yaml:"server_home"`
+	Config     Config `yaml:"config"`
 }
 
 var (
-	runtimeConfig *ThunderRuntime
+	runtimeConfig *ServerRuntime
 	once          sync.Once
 )
 
-// InitializeThunderRuntime initializes the ThunderRuntime configuration.
-func InitializeThunderRuntime(thunderHome string, config *Config) error {
+// InitializeServerRuntime initializes the server runtime configurations.
+func InitializeServerRuntime(serverHome string, config *Config) error {
 	once.Do(func() {
-		runtimeConfig = &ThunderRuntime{
-			ThunderHome: thunderHome,
-			Config:      *config,
+		runtimeConfig = &ServerRuntime{
+			ServerHome: serverHome,
+			Config:     *config,
 		}
 	})
 
 	return nil
 }
 
-// GetThunderRuntime returns the ThunderRuntime configuration.
-func GetThunderRuntime() *ThunderRuntime {
+// GetServerRuntime returns the server runtime configurations.
+func GetServerRuntime() *ServerRuntime {
 	if runtimeConfig == nil {
-		panic("ThunderRuntime is not initialized")
+		panic("Server runtime is not initialized")
 	}
 	return runtimeConfig
 }
 
-// ResetThunderRuntime resets the ThunderRuntime.
+// ResetServerRuntime resets the server runtime.
 // This should only be used in tests to reset the singleton state.
-func ResetThunderRuntime() {
+func ResetServerRuntime() {
 	runtimeConfig = nil
 	once = sync.Once{}
 }

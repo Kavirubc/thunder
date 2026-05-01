@@ -118,8 +118,8 @@ func (suite *JWTServiceTestSuite) AfterTest(_, _ string) {
 }
 
 func (suite *JWTServiceTestSuite) SetupTest() {
-	// Reset ThunderRuntime before each test
-	config.ResetThunderRuntime()
+	// Reset server runtime before each test
+	config.ResetServerRuntime()
 
 	// Create PKI mock
 	suite.pkiMock = pkimock.NewPKIServiceInterfaceMock(suite.T())
@@ -137,7 +137,7 @@ func (suite *JWTServiceTestSuite) SetupTest() {
 			KeyFile: suite.testKeyPath,
 		},
 		JWT: config.JWTConfig{
-			Issuer:         "https://test.thunder.io",
+			Issuer:         "https://auth.example.com",
 			ValidityPeriod: 3600, // Default validity period
 			PreferredKeyID: "test-kid",
 			Leeway:         30, // 30 seconds leeway for clock skew
@@ -152,7 +152,7 @@ func (suite *JWTServiceTestSuite) SetupTest() {
 			},
 		},
 	}
-	err := config.InitializeThunderRuntime("", testConfig)
+	err := config.InitializeServerRuntime("", testConfig)
 	assert.NoError(suite.T(), err)
 	suite.jwtService.httpClient = httpservice.NewHTTPClientWithTimeout(10 * time.Second)
 }
@@ -1509,8 +1509,8 @@ func (suite *JWTServiceTestSuite) TestVerifyJWTSignatureWithJWKSUsesCache() {
 	// The default SetupTest config has SecurityConfig.JWKSCacheTTL == 0, which would
 	// cause the cache to expire instantly (Now().Before(Now()) == false). Re-initialize
 	// the runtime here with a positive TTL so the cache actually retains entries.
-	config.ResetThunderRuntime()
-	defer config.ResetThunderRuntime()
+	config.ResetServerRuntime()
+	defer config.ResetServerRuntime()
 	testConfig := &config.Config{
 		JWT: config.JWTConfig{
 			Issuer:         testIssuer,
@@ -1523,7 +1523,7 @@ func (suite *JWTServiceTestSuite) TestVerifyJWTSignatureWithJWKSUsesCache() {
 			},
 		},
 	}
-	err := config.InitializeThunderRuntime("", testConfig)
+	err := config.InitializeServerRuntime("", testConfig)
 	assert.NoError(suite.T(), err)
 
 	jwksData := suite.createMockJWKSData()
@@ -2456,13 +2456,13 @@ func (suite *JWTServiceTestSuite) TestVerifyJWTWithLeeway() {
 
 func (suite *JWTServiceTestSuite) TestVerifyJWTWithZeroLeeway() {
 	// Test behavior when leeway is set to 0
-	config.ResetThunderRuntime()
+	config.ResetServerRuntime()
 	testConfig := &config.Config{
 		TLS: config.TLSConfig{
 			KeyFile: suite.testKeyPath,
 		},
 		JWT: config.JWTConfig{
-			Issuer:         "https://test.thunder.io",
+			Issuer:         "https://auth.example.com",
 			ValidityPeriod: 3600,
 			PreferredKeyID: "test-kid",
 			Leeway:         0, // No leeway
@@ -2477,7 +2477,7 @@ func (suite *JWTServiceTestSuite) TestVerifyJWTWithZeroLeeway() {
 			},
 		},
 	}
-	err := config.InitializeThunderRuntime("", testConfig)
+	err := config.InitializeServerRuntime("", testConfig)
 	assert.NoError(suite.T(), err)
 
 	// Token expired 1 second ago should fail with zero leeway

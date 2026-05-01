@@ -47,8 +47,8 @@ func TestDeclarativeResourceTestSuite(t *testing.T) {
 
 // SetupTest initializes runtime config required for hashing.
 func (suite *DeclarativeResourceTestSuite) SetupTest() {
-	config.ResetThunderRuntime()
-	err := config.InitializeThunderRuntime("test", &config.Config{
+	config.ResetServerRuntime()
+	err := config.InitializeServerRuntime("test", &config.Config{
 		Crypto: config.CryptoConfig{
 			PasswordHashing: config.PasswordHashingConfig{
 				Algorithm: string(hash.SHA256),

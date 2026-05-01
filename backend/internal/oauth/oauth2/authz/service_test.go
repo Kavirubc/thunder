@@ -72,7 +72,7 @@ func TestAuthorizeServiceTestSuite(t *testing.T) {
 }
 
 func (suite *AuthorizeServiceTestSuite) BeforeTest(suiteName, testName string) {
-	config.ResetThunderRuntime()
+	config.ResetServerRuntime()
 	testConfig := &config.Config{
 		GateClient: config.GateClientConfig{
 			Scheme:    "https",
@@ -92,7 +92,7 @@ func (suite *AuthorizeServiceTestSuite) BeforeTest(suiteName, testName string) {
 			AuthorizationCode: config.AuthorizationCodeConfig{ValidityPeriod: 600},
 		},
 	}
-	_ = config.InitializeThunderRuntime("test", testConfig)
+	_ = config.InitializeServerRuntime("test", testConfig)
 }
 
 func (suite *AuthorizeServiceTestSuite) SetupTest() {
@@ -1505,8 +1505,8 @@ func (suite *AuthorizeServiceTestSuite) TestResolveScopeAttributes_UnknownScope(
 }
 
 func (suite *AuthorizeServiceTestSuite) TestResolveAttrCacheTTL_RefreshAllowed_UsesMaxOfRefreshAndAccessValidity() {
-	config.ResetThunderRuntime()
-	_ = config.InitializeThunderRuntime("test", &config.Config{
+	config.ResetServerRuntime()
+	_ = config.InitializeServerRuntime("test", &config.Config{
 		JWT: config.JWTConfig{ValidityPeriod: 900},
 		OAuth: config.OAuthConfig{
 			RefreshToken:      config.RefreshTokenConfig{ValidityPeriod: 7200},
@@ -1529,8 +1529,8 @@ func (suite *AuthorizeServiceTestSuite) TestResolveAttrCacheTTL_RefreshAllowed_U
 }
 
 func (suite *AuthorizeServiceTestSuite) TestResolveAttrCacheTTL_RefreshTokenAllowed_UsesAccessTokenWhenLonger() {
-	config.ResetThunderRuntime()
-	_ = config.InitializeThunderRuntime("test", &config.Config{
+	config.ResetServerRuntime()
+	_ = config.InitializeServerRuntime("test", &config.Config{
 		JWT: config.JWTConfig{ValidityPeriod: 900},
 		OAuth: config.OAuthConfig{
 			RefreshToken:      config.RefreshTokenConfig{ValidityPeriod: 1800},
@@ -1553,8 +1553,8 @@ func (suite *AuthorizeServiceTestSuite) TestResolveAttrCacheTTL_RefreshTokenAllo
 }
 
 func (suite *AuthorizeServiceTestSuite) TestResolveUserAttributesCacheTTL_RefreshTokenAllowed_FallsBackToGlobalJWT() {
-	config.ResetThunderRuntime()
-	_ = config.InitializeThunderRuntime("test", &config.Config{
+	config.ResetServerRuntime()
+	_ = config.InitializeServerRuntime("test", &config.Config{
 		JWT: config.JWTConfig{ValidityPeriod: 900},
 		OAuth: config.OAuthConfig{
 			// RefreshToken.ValidityPeriod is 0 → ResolveTokenConfig falls back to global JWT validity.
@@ -1587,8 +1587,8 @@ func (suite *AuthorizeServiceTestSuite) TestResolveAttrCacheTTL_RefreshTokenNotA
 }
 
 func (suite *AuthorizeServiceTestSuite) TestResolveAttrCacheTTL_NoRefreshToken_ZeroAccessTTL_FallsBackToGlobalJWT() {
-	config.ResetThunderRuntime()
-	_ = config.InitializeThunderRuntime("test", &config.Config{
+	config.ResetServerRuntime()
+	_ = config.InitializeServerRuntime("test", &config.Config{
 		JWT: config.JWTConfig{ValidityPeriod: 900},
 		OAuth: config.OAuthConfig{
 			AuthorizationCode: config.AuthorizationCodeConfig{ValidityPeriod: 600},
@@ -1608,8 +1608,8 @@ func (suite *AuthorizeServiceTestSuite) TestResolveAttrCacheTTL_NoRefreshToken_Z
 }
 
 func (suite *AuthorizeServiceTestSuite) TestResolveAttrCacheTTL_NoRefreshToken_NilToken_FallsBackToGlobalJWT() {
-	config.ResetThunderRuntime()
-	_ = config.InitializeThunderRuntime("test", &config.Config{
+	config.ResetServerRuntime()
+	_ = config.InitializeServerRuntime("test", &config.Config{
 		JWT: config.JWTConfig{ValidityPeriod: 900},
 		OAuth: config.OAuthConfig{
 			AuthorizationCode: config.AuthorizationCodeConfig{ValidityPeriod: 600},
@@ -1626,8 +1626,8 @@ func (suite *AuthorizeServiceTestSuite) TestResolveAttrCacheTTL_NoRefreshToken_N
 }
 
 func (suite *AuthorizeServiceTestSuite) TestResolveAttrCacheTTL_NoRefreshToken_NilAccessToken_FallsBackToGlobalJWT() {
-	config.ResetThunderRuntime()
-	_ = config.InitializeThunderRuntime("test", &config.Config{
+	config.ResetServerRuntime()
+	_ = config.InitializeServerRuntime("test", &config.Config{
 		JWT: config.JWTConfig{ValidityPeriod: 900},
 		OAuth: config.OAuthConfig{
 			AuthorizationCode: config.AuthorizationCodeConfig{ValidityPeriod: 600},
