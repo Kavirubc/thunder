@@ -439,7 +439,7 @@ importers:
         version: link:../../packages/test-utils
       '@thunder/types':
         specifier: workspace:^
-        version: link:../../packages/thunder-types
+        version: link:../../packages/types
       '@types/lodash-es':
         specifier: 'catalog:'
         version: 4.17.12
@@ -769,7 +769,7 @@ importers:
         version: link:../test-utils
       '@thunder/types':
         specifier: workspace:^
-        version: link:../thunder-types
+        version: link:../types
       '@types/node':
         specifier: 'catalog:'
         version: 24.7.2
@@ -966,7 +966,7 @@ importers:
         version: link:../test-utils
       '@thunder/types':
         specifier: workspace:^
-        version: link:../thunder-types
+        version: link:../types
       '@types/node':
         specifier: 'catalog:'
         version: 24.7.2
@@ -1167,7 +1167,7 @@ importers:
         version: link:../test-utils
       '@thunder/types':
         specifier: workspace:^
-        version: link:../thunder-types
+        version: link:../types
       '@types/node':
         specifier: 'catalog:'
         version: 24.7.2
@@ -1559,7 +1559,7 @@ importers:
         specifier: 'catalog:'
         version: 4.1.3(@opentelemetry/api@1.9.0)(@types/node@24.7.2)(@vitest/browser-playwright@4.1.3)(@vitest/coverage-istanbul@4.1.3)(jsdom@27.0.1(postcss@8.5.8))(vite@8.0.7(@types/node@24.7.2)(jiti@2.6.1)(sass-embedded@1.98.0)(sass@1.98.0)(terser@5.46.0)(yaml@2.8.3))
 
-  packages/thunder-types:
+  packages/types:
     devDependencies:
       '@thunder/eslint-plugin-thunder':
         specifier: workspace:^
@@ -1609,7 +1609,7 @@ importers:
         version: link:../test-utils
       '@thunder/types':
         specifier: workspace:^
-        version: link:../thunder-types
+        version: link:../types
       '@types/node':
         specifier: 'catalog:'
         version: 24.7.2
