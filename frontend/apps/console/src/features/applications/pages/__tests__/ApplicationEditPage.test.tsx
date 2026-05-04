@@ -121,7 +121,7 @@ vi.mock('../../components/edit-application/integration-guides/IntegrationGuides'
   default: vi.fn(() => <div data-testid="integration-guides">Integration Guides</div>),
 }));
 
-vi.mock('@thunder/components', async () => {
+vi.mock('@thunderid/components', async () => {
   const React = await import('react');
   return {
     CopyableId: vi.fn(() => null),

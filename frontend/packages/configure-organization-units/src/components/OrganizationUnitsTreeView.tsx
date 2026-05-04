@@ -18,7 +18,7 @@
 
 import {useAsgardeo} from '@asgardeo/react';
 import {useQueryClient} from '@tanstack/react-query';
-import {ResourceAvatar} from '@thunder/components';
+import {ResourceAvatar} from '@thunderid/components';
 import {useConfig} from '@thunder/contexts';
 import {useLogger} from '@thunderid/logger/react';
 import {

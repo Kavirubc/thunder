@@ -16,7 +16,7 @@
  * under the License.
  */
 
-import {SettingsCard} from '@thunder/components';
+import {SettingsCard} from '@thunderid/components';
 import {useGetThemes} from '@thunder/design';
 import {Box, Typography, TextField, Autocomplete, CircularProgress} from '@wso2/oxygen-ui';
 import type {JSX} from 'react';

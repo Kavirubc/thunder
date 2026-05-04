@@ -16,7 +16,7 @@
  * under the License.
  */
 
-import {ResourceAvatar, SettingsCard, getInitials} from '@thunder/components';
+import {ResourceAvatar, SettingsCard, getInitials} from '@thunderid/components';
 import {useResolveDisplayName} from '@thunder/hooks';
 import {useLogger} from '@thunderid/logger/react';
 import {

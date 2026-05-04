@@ -27,8 +27,8 @@ const {mockLoggerError} = vi.hoisted(() => ({
   mockLoggerError: vi.fn(),
 }));
 
-vi.mock('@thunder/components', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('@thunder/components')>();
+vi.mock('@thunderid/components', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@thunderid/components')>();
   return {
     ...actual,
     CopyableId: vi.fn(() => null),

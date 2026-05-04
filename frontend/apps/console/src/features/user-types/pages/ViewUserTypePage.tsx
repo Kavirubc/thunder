@@ -16,7 +16,7 @@
  * under the License.
  */
 
-import {UnsavedChangesBar} from '@thunder/components';
+import {UnsavedChangesBar} from '@thunderid/components';
 import {useToast} from '@thunder/contexts';
 import {useLogger} from '@thunderid/logger/react';
 import {

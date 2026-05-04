@@ -319,7 +319,7 @@ importers:
       '@tanstack/react-query-devtools':
         specifier: 'catalog:'
         version: 5.90.2(@tanstack/react-query@5.90.5(react@19.2.3))(react@19.2.3)
-      '@thunder/components':
+      '@thunderid/components':
         specifier: workspace:^
         version: link:../../packages/components
       '@thunder/configure-organization-units':
@@ -709,7 +709,7 @@ importers:
       '@tanstack/react-query':
         specifier: 'catalog:'
         version: 5.90.5(react@19.2.3)
-      '@thunder/components':
+      '@thunderid/components':
         specifier: workspace:^
         version: link:../components
       '@thunder/contexts':
@@ -815,7 +815,7 @@ importers:
       '@tanstack/react-query':
         specifier: 'catalog:'
         version: 5.90.5(react@19.2.3)
-      '@thunder/components':
+      '@thunderid/components':
         specifier: workspace:^
         version: link:../components
       '@thunder/contexts':
@@ -906,7 +906,7 @@ importers:
       '@tanstack/react-query':
         specifier: 'catalog:'
         version: 5.90.5(react@19.2.3)
-      '@thunder/components':
+      '@thunderid/components':
         specifier: workspace:^
         version: link:../components
       '@thunder/contexts':

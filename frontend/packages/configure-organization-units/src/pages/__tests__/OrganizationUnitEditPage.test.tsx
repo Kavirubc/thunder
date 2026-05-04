@@ -122,7 +122,7 @@ vi.mock('@thunder/hooks', () => ({
 }));
 
 // Mock EmojiPicker
-vi.mock('@thunder/components', async () => {
+vi.mock('@thunderid/components', async () => {
   const React = await import('react');
   return {
     EmojiPicker: vi.fn(() => null),

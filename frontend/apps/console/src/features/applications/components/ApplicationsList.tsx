@@ -16,7 +16,7 @@
  * under the License.
  */
 
-import {ResourceAvatar} from '@thunder/components';
+import {ResourceAvatar} from '@thunderid/components';
 import {useConfig} from '@thunder/contexts';
 import {useDataGridLocaleText} from '@thunder/hooks';
 import {useLogger} from '@thunderid/logger/react';

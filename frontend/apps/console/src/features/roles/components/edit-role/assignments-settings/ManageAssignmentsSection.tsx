@@ -16,7 +16,7 @@
  * under the License.
  */
 
-import {SettingsCard} from '@thunder/components';
+import {SettingsCard} from '@thunderid/components';
 import {useDataGridLocaleText} from '@thunder/hooks';
 import {Box, Avatar, DataGrid, IconButton, Tabs, Tab} from '@wso2/oxygen-ui';
 import {AppWindow, Trash2, User, Users} from '@wso2/oxygen-ui-icons-react';

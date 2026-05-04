@@ -23,8 +23,8 @@ import type {ReactNode} from 'react';
 import {describe, it, expect, beforeEach, afterEach, vi} from 'vitest';
 import GroupEditPage from '../GroupEditPage';
 
-vi.mock('@thunder/components', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('@thunder/components')>();
+vi.mock('@thunderid/components', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@thunderid/components')>();
   return {
     ...actual,
     CopyableId: vi.fn(({value}: {value: string}) => (

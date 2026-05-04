@@ -22,7 +22,7 @@ import type {Role} from '../../../../models/role';
 import EditGeneralSettings from '../EditGeneralSettings';
 
 // Mock Components
-vi.mock('@thunder/components', () => ({
+vi.mock('@thunderid/components', () => ({
   SettingsCard: ({title, description, children}: {title: string; description: string; children: React.ReactNode}) => (
     <div data-testid="settings-card">
       <h3>{title}</h3>

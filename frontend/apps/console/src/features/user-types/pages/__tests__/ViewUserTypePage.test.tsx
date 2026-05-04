@@ -23,8 +23,8 @@ import {describe, it, expect, vi, beforeEach} from 'vitest';
 import type {ApiUserSchema, ApiError} from '../../types/user-types';
 import ViewUserTypePage from '../ViewUserTypePage';
 
-vi.mock('@thunder/components', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('@thunder/components')>();
+vi.mock('@thunderid/components', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@thunderid/components')>();
   return {
     ...actual,
     CopyableId: vi.fn(({value}: {value: string}) => <span data-testid="copyable-id">{value}</span>),

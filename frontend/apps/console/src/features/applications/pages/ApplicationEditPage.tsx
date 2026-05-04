@@ -16,7 +16,7 @@
  * under the License.
  */
 
-import {ResourceAvatar, UnsavedChangesBar} from '@thunder/components';
+import {ResourceAvatar, UnsavedChangesBar} from '@thunderid/components';
 import {useLogger} from '@thunderid/logger/react';
 import {
   Box,

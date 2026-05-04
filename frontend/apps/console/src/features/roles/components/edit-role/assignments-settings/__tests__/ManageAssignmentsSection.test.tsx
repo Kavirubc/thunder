@@ -26,7 +26,7 @@ vi.mock('@thunder/hooks', () => ({
   useDataGridLocaleText: vi.fn(),
 }));
 
-vi.mock('@thunder/components', () => ({
+vi.mock('@thunderid/components', () => ({
   SettingsCard: ({
     title,
     description,

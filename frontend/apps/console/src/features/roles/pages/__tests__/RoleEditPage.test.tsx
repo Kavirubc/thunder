@@ -45,7 +45,7 @@ vi.mock('../../components/edit-role/assignments-settings/EditAssignmentsSettings
   default: () => <div data-testid="edit-assignments-settings">Assignments Settings</div>,
 }));
 
-vi.mock('@thunder/components', () => ({
+vi.mock('@thunderid/components', () => ({
   CopyableId: vi.fn(() => null),
 }));
 
