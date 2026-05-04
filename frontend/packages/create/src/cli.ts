@@ -21,7 +21,7 @@
 /* eslint-disable @thunder/copyright-header */
 
 import {intro, outro, cancel} from '@clack/prompts';
-import {createLogger} from '@thunder/logger';
+import {createLogger} from '@thunderid/logger';
 import {Command} from 'commander';
 import colors from 'picocolors';
 import createFeature from './commands/createFeature';

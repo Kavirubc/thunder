@@ -162,7 +162,7 @@ importers:
       '@thunder/eslint-plugin-thunder':
         specifier: workspace:^
         version: link:packages/eslint-plugin
-      '@thunder/logger':
+      '@thunderid/logger':
         specifier: workspace:^
         version: link:packages/logger
       '@thunder/prettier-config':
@@ -210,7 +210,7 @@ importers:
       '@thunder/eslint-plugin-thunder':
         specifier: workspace:^
         version: link:../frontend/packages/eslint-plugin
-      '@thunder/logger':
+      '@thunderid/logger':
         specifier: workspace:^
         version: link:../frontend/packages/logger
       '@thunder/prettier-config':
@@ -343,7 +343,7 @@ importers:
       '@thunder/i18n':
         specifier: workspace:^
         version: link:../../packages/i18n
-      '@thunder/logger':
+      '@thunderid/logger':
         specifier: workspace:^
         version: link:../../packages/logger
       '@thunder/utils':
@@ -527,7 +527,7 @@ importers:
       '@thunder/i18n':
         specifier: workspace:^
         version: link:../../packages/i18n
-      '@thunder/logger':
+      '@thunderid/logger':
         specifier: workspace:^
         version: link:../../packages/logger
       '@thunder/utils':
@@ -630,7 +630,7 @@ importers:
       '@thunder/hooks':
         specifier: workspace:^
         version: link:../hooks
-      '@thunder/logger':
+      '@thunderid/logger':
         specifier: workspace:^
         version: link:../logger
       '@wso2/oxygen-ui':
@@ -724,7 +724,7 @@ importers:
       '@thunder/i18n':
         specifier: workspace:^
         version: link:../i18n
-      '@thunder/logger':
+      '@thunderid/logger':
         specifier: workspace:^
         version: link:../logger
       '@thunder/utils':
@@ -827,7 +827,7 @@ importers:
       '@thunder/i18n':
         specifier: workspace:^
         version: link:../i18n
-      '@thunder/logger':
+      '@thunderid/logger':
         specifier: workspace:^
         version: link:../logger
       '@wso2/oxygen-ui':
@@ -921,7 +921,7 @@ importers:
       '@thunder/i18n':
         specifier: workspace:^
         version: link:../i18n
-      '@thunder/logger':
+      '@thunderid/logger':
         specifier: workspace:^
         version: link:../logger
       '@wso2/oxygen-ui':
@@ -1064,7 +1064,7 @@ importers:
       '@clack/prompts':
         specifier: ^0.7.0
         version: 0.7.0
-      '@thunder/logger':
+      '@thunderid/logger':
         specifier: workspace:^
         version: link:../logger
       commander:
@@ -1122,7 +1122,7 @@ importers:
       '@thunder/contexts':
         specifier: workspace:^
         version: link:../contexts
-      '@thunder/logger':
+      '@thunderid/logger':
         specifier: workspace:^
         version: link:../logger
       '@thunder/utils':
@@ -1298,7 +1298,7 @@ importers:
 
   packages/hooks:
     dependencies:
-      '@thunder/logger':
+      '@thunderid/logger':
         specifier: workspace:^
         version: link:../logger
       '@thunder/utils':
@@ -1510,7 +1510,7 @@ importers:
       '@thunder/i18n':
         specifier: workspace:^
         version: link:../i18n
-      '@thunder/logger':
+      '@thunderid/logger':
         specifier: workspace:^
         version: link:../logger
       '@thunder/prettier-config':

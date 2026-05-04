@@ -18,7 +18,7 @@
 
 import {SettingsCard} from '@thunder/components';
 import {useDataGridLocaleText} from '@thunder/hooks';
-import {useLogger} from '@thunder/logger/react';
+import {useLogger} from '@thunderid/logger/react';
 import {Box, DataGrid, Avatar, useTheme} from '@wso2/oxygen-ui';
 import {Building} from '@wso2/oxygen-ui-icons-react';
 import {useMemo, type JSX} from 'react';

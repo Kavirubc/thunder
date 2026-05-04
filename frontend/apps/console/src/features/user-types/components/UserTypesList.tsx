@@ -17,7 +17,7 @@
  */
 
 import {useDataGridLocaleText} from '@thunder/hooks';
-import {useLogger} from '@thunder/logger/react';
+import {useLogger} from '@thunderid/logger/react';
 import {
   Chip,
   IconButton,

@@ -141,7 +141,7 @@ vi.mock('react-router', async () => {
     useNavigate: () => mockNavigate,
   };
 });
-vi.mock('@thunder/logger/react', () => ({
+vi.mock('@thunderid/logger/react', () => ({
   useLogger: () => ({
     error: mockLoggerError,
     info: vi.fn(),

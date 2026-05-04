@@ -49,7 +49,7 @@ vi.mock('react-router', async () => {
 });
 
 // Mock logger
-vi.mock('@thunder/logger/react', () => ({
+vi.mock('@thunderid/logger/react', () => ({
   useLogger: () => ({
     info: vi.fn(),
     warn: vi.fn(),

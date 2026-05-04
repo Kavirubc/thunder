@@ -53,7 +53,7 @@
     "@tanstack/react-query-devtools": "catalog:",
     "@thunder/components": "workspace:^",
     "@thunder/i18n": "workspace:^",
-    "@thunder/logger": "workspace:^",
+    "@thunderid/logger": "workspace:^",
     "@thunder/contexts": "workspace:^",
     "@thunder/design": "workspace:^",
     "@thunder/hooks": "workspace:^",

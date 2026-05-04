@@ -82,7 +82,7 @@
     "@thunder/contexts": "workspace:^",
     "@thunder/design": "workspace:^",
     "@thunder/hooks": "workspace:^",
-    "@thunder/logger": "workspace:^",
+    "@thunderid/logger": "workspace:^",
     "react": "catalog:",
     "react-dom": "catalog:",
     "react-i18next": "catalog:",

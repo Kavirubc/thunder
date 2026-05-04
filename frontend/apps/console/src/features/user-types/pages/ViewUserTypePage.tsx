@@ -18,7 +18,7 @@
 
 import {UnsavedChangesBar} from '@thunder/components';
 import {useToast} from '@thunder/contexts';
-import {useLogger} from '@thunder/logger/react';
+import {useLogger} from '@thunderid/logger/react';
 import {
   Box,
   Stack,

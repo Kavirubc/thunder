@@ -79,7 +79,7 @@ let mockInviteUserRenderProps: TestInviteUserRenderProps = {...defaultRenderProp
 /*  Mocks                                                             */
 /* ------------------------------------------------------------------ */
 
-vi.mock('@thunder/logger/react', () => ({
+vi.mock('@thunderid/logger/react', () => ({
   useLogger: () => ({
     info: mockLoggerInfo,
     error: mockLoggerError,

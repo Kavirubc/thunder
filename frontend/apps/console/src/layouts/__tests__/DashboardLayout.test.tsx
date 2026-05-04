@@ -79,7 +79,7 @@ vi.mock('react-i18next', () => ({
 }));
 
 // Mock logger
-vi.mock('@thunder/logger/react', () => ({
+vi.mock('@thunderid/logger/react', () => ({
   useLogger: () => ({
     error: mockLoggerError,
     warn: mockLoggerWarn,

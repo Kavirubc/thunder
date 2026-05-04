@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@thunder/eslint-plugin-thunder": "workspace:^",
-    "@thunder/logger": "workspace:^",
+    "@thunderid/logger": "workspace:^",
     "@thunder/prettier-config": "workspace:^",
     "eslint": "catalog:",
     "i18next-cli": "1.51.3",

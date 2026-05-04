@@ -19,7 +19,7 @@
 import {existsSync} from 'fs';
 import {join} from 'path';
 import {text, select, spinner, cancel} from '@clack/prompts';
-import {createLogger} from '@thunder/logger';
+import {createLogger} from '@thunderid/logger';
 import kebabCase from 'lodash-es/kebabCase';
 import colors from 'picocolors';
 import createFileFromTemplate from '../utils/createFileFromTemplate';

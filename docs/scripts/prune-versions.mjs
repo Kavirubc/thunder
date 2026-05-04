@@ -46,7 +46,7 @@
 
 import {readFileSync, writeFileSync, rmSync, existsSync} from 'fs';
 import {join, dirname} from 'path';
-import {createLogger} from '@thunder/logger';
+import {createLogger} from '@thunderid/logger';
 import {fileURLToPath} from 'url';
 
 const __filename = fileURLToPath(import.meta.url);

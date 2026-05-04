@@ -54,7 +54,7 @@ vi.mock('@thunder/i18n', () => ({
   enUS: {},
 }));
 
-vi.mock('@thunder/logger/react', () => ({
+vi.mock('@thunderid/logger/react', () => ({
   useLogger: () => ({error: vi.fn(), info: vi.fn(), warn: vi.fn(), debug: vi.fn()}),
 }));
 

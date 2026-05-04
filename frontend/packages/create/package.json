@@ -58,7 +58,7 @@
   "dependencies": {
     "@clack/prompts": "^0.7.0",
     "lodash-es": "catalog:",
-    "@thunder/logger": "workspace:^",
+    "@thunderid/logger": "workspace:^",
     "commander": "^11.1.0",
     "handlebars": "^4.7.9",
     "picocolors": "^1.0.0"

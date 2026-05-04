@@ -19,7 +19,7 @@
 import {AcceptInvite, useAsgardeo, type EmbeddedFlowComponent} from '@asgardeo/react';
 import {useConfig} from '@thunder/contexts';
 import {useDesign, FlowComponentRenderer, AuthCardLayout} from '@thunder/design';
-import {useLogger} from '@thunder/logger/react';
+import {useLogger} from '@thunderid/logger/react';
 import {Box, Alert, Typography, AlertTitle, CircularProgress} from '@wso2/oxygen-ui';
 import type {JSX} from 'react';
 import {useState} from 'react';

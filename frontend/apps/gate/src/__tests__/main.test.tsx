@@ -78,7 +78,7 @@ vi.mock('@thunder/contexts', () => ({
 }));
 
 // Mock logger
-vi.mock('@thunder/logger/react', () => ({
+vi.mock('@thunderid/logger/react', () => ({
   LoggerProvider: ({children}: {children: React.ReactNode}) => children,
   LogLevel: {DEBUG: 0, INFO: 1, WARN: 2, ERROR: 3},
 }));

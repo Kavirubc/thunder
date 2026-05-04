@@ -19,7 +19,7 @@
 import {ResourceAvatar} from '@thunder/components';
 import {useConfig} from '@thunder/contexts';
 import {useDataGridLocaleText} from '@thunder/hooks';
-import {useLogger} from '@thunder/logger/react';
+import {useLogger} from '@thunderid/logger/react';
 import {Box, Chip, IconButton, Tooltip, Typography, ListingTable, DataGrid, useTheme} from '@wso2/oxygen-ui';
 import {Pencil, Trash2} from '@wso2/oxygen-ui-icons-react';
 import {useMemo, useCallback, useState, type JSX} from 'react';

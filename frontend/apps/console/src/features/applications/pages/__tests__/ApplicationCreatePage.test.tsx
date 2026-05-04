@@ -29,7 +29,7 @@ const mockCreateApplication = vi.fn();
 const mockNavigate = vi.fn();
 
 // Mock logger
-vi.mock('@thunder/logger/react', () => ({
+vi.mock('@thunderid/logger/react', () => ({
   useLogger: () => ({
     info: vi.fn(),
     warn: vi.fn(),

@@ -17,7 +17,7 @@
  */
 
 import {useToast, useConfig} from '@thunder/contexts';
-import {useLogger} from '@thunder/logger/react';
+import {useLogger} from '@thunderid/logger/react';
 import {
   Alert,
   Box,

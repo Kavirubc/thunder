@@ -33,7 +33,7 @@ vi.mock('react-router', async () => {
 
 // Mock logger — stable reference to avoid useCallback churn
 const stableLogger = {error: vi.fn(), info: vi.fn(), debug: vi.fn()};
-vi.mock('@thunder/logger/react', () => ({
+vi.mock('@thunderid/logger/react', () => ({
   useLogger: () => stableLogger,
 }));
 

@@ -17,7 +17,7 @@
  */
 
 import {ResourceAvatar, UnsavedChangesBar} from '@thunder/components';
-import {useLogger} from '@thunder/logger/react';
+import {useLogger} from '@thunderid/logger/react';
 import {
   Box,
   Stack,

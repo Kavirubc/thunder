@@ -17,7 +17,7 @@
  */
 
 import {render, screen, waitFor, fireEvent} from '@testing-library/react';
-import {LoggerProvider, LogLevel} from '@thunder/logger';
+import {LoggerProvider, LogLevel} from '@thunderid/logger';
 import {describe, it, expect, vi, beforeEach, afterEach} from 'vitest';
 import type {IntegrationGuides} from '../../../../models/application-templates';
 import TechnologyGuide from '../TechnologyGuide';

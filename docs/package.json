@@ -44,7 +44,7 @@
     "@docusaurus/preset-classic": "3.9.2",
     "@mdx-js/react": "3.0.0",
     "@thunder/eslint-plugin-thunder": "workspace:^",
-    "@thunder/logger": "workspace:^",
+    "@thunderid/logger": "workspace:^",
     "@thunder/prettier-config": "workspace:^",
     "@wso2/oxygen-ui": "catalog:",
     "@wso2/oxygen-ui-icons-react": "catalog:",

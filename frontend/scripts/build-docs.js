@@ -26,7 +26,7 @@
 import {spawn} from 'node:child_process';
 import {resolve, join} from 'node:path';
 import process from 'node:process';
-import {createLogger} from '@thunder/logger';
+import {createLogger} from '@thunderid/logger';
 
 const logger = createLogger({level: 'info'});
 const docsDir = resolve(process.cwd(), join('..', 'docs'));

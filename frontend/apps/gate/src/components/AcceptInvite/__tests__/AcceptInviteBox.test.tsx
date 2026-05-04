@@ -31,8 +31,8 @@ const {mockLogger} = vi.hoisted(() => ({
   },
 }));
 
-vi.mock('@thunder/logger/react', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('@thunder/logger/react')>();
+vi.mock('@thunderid/logger/react', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@thunderid/logger/react')>();
 
   return {
     ...actual,

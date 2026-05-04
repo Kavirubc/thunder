@@ -39,7 +39,7 @@ vi.mock('react-router', async () => {
 
 const mockLogger = {error: vi.fn(), warn: vi.fn(), info: vi.fn(), debug: vi.fn()};
 
-vi.mock('@thunder/logger/react', () => ({
+vi.mock('@thunderid/logger/react', () => ({
   useLogger: () => mockLogger,
 }));
 

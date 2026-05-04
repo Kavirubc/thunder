@@ -128,7 +128,7 @@ vi.mock('../ApplicationDeleteDialog', () => ({
     ) : null,
 }));
 
-vi.mock('@thunder/logger/react', () => ({
+vi.mock('@thunderid/logger/react', () => ({
   useLogger: () => ({
     error: mockLoggerError,
     info: vi.fn(),

@@ -23,7 +23,7 @@
 import {readFileSync, writeFileSync, readdirSync, existsSync, mkdirSync} from 'fs';
 import {join, dirname} from 'path';
 import {fileURLToPath} from 'url';
-import {createLogger} from '@thunder/logger';
+import {createLogger} from '@thunderid/logger';
 import {parse, stringify} from 'yaml';
 
 const __filename = fileURLToPath(import.meta.url);

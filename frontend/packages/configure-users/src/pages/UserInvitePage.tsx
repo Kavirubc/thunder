@@ -30,7 +30,7 @@ import {
 import {zodResolver} from '@hookform/resolvers/zod';
 import {OrganizationUnitTreePicker} from '@thunder/configure-organization-units';
 import {CopyableTextAdapter, type FlowComponent} from '@thunder/design';
-import {useLogger} from '@thunder/logger/react';
+import {useLogger} from '@thunderid/logger/react';
 import {
   Box,
   Stack,
