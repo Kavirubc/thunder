@@ -16,7 +16,7 @@
  * under the License.
  */
 
-import {useDataGridLocaleText} from '@thunder/hooks';
+import {useDataGridLocaleText} from '@thunderid/hooks';
 import {useLogger} from '@thunderid/logger/react';
 import {
   Chip,

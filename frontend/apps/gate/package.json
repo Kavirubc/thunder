@@ -43,7 +43,7 @@
     "@thunderid/logger": "workspace:^",
     "@thunder/design": "workspace:^",
     "@thunderid/i18n": "workspace:^",
-    "@thunder/hooks": "workspace:^",
+    "@thunderid/hooks": "workspace:^",
     "@thunderid/utils": "workspace:^",
     "@wso2/oxygen-ui": "catalog:",
     "@wso2/oxygen-ui-icons-react": "catalog:",

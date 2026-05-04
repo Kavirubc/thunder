@@ -81,7 +81,7 @@
     "@tanstack/react-query": "catalog:",
     "@thunder/contexts": "workspace:^",
     "@thunder/design": "workspace:^",
-    "@thunder/hooks": "workspace:^",
+    "@thunderid/hooks": "workspace:^",
     "@thunderid/logger": "workspace:^",
     "react": "catalog:",
     "react-dom": "catalog:",

@@ -22,7 +22,7 @@ import {describe, it, expect, vi, beforeEach, afterEach} from 'vitest';
 import ManageAssignmentsSection from '../ManageAssignmentsSection';
 
 vi.mock('../../../../api/useGetRoleAssignments');
-vi.mock('@thunder/hooks', () => ({
+vi.mock('@thunderid/hooks', () => ({
   useDataGridLocaleText: vi.fn(),
 }));
 
@@ -103,7 +103,7 @@ vi.mock('@wso2/oxygen-ui', async (importOriginal) => {
 });
 
 const {default: useGetRoleAssignments} = await import('../../../../api/useGetRoleAssignments');
-const {useDataGridLocaleText} = await import('@thunder/hooks');
+const {useDataGridLocaleText} = await import('@thunderid/hooks');
 
 describe('ManageAssignmentsSection', () => {
   const mockOnRemoveAssignment = vi.fn();

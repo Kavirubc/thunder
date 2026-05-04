@@ -120,7 +120,7 @@ vi.mock('@asgardeo/react', async () => {
   };
 });
 
-vi.mock('@thunder/hooks', () => ({
+vi.mock('@thunderid/hooks', () => ({
   useTemplateLiteralResolver: () => ({
     resolve: (key: string) => key,
   }),

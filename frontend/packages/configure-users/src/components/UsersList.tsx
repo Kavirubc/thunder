@@ -17,7 +17,7 @@
  */
 
 import {ResourceAvatar, getInitials} from '@thunderid/components';
-import {useDataGridLocaleText} from '@thunder/hooks';
+import {useDataGridLocaleText} from '@thunderid/hooks';
 import {useLogger} from '@thunderid/logger/react';
 import {
   IconButton,

@@ -66,7 +66,7 @@ vi.mock('@thunder/shared-branding', () => ({
 
 // Mock useTemplateLiteralResolver
 const mockResolveAll = vi.fn().mockImplementation((template: string) => template);
-vi.mock('@thunder/hooks', () => ({
+vi.mock('@thunderid/hooks', () => ({
   useTemplateLiteralResolver: () => ({
     resolve: (key: string) => key,
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return

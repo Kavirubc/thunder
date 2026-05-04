@@ -17,7 +17,7 @@
  */
 
 import {SettingsCard, getInitials} from '@thunderid/components';
-import {useDataGridLocaleText} from '@thunder/hooks';
+import {useDataGridLocaleText} from '@thunderid/hooks';
 import type {User} from '@thunderid/types';
 import {Box, DataGrid, Avatar} from '@wso2/oxygen-ui';
 import {useMemo, type JSX} from 'react';

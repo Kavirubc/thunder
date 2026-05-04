@@ -17,7 +17,7 @@
  */
 
 import {ResourceAvatar, SettingsCard, getInitials} from '@thunderid/components';
-import {useResolveDisplayName} from '@thunder/hooks';
+import {useResolveDisplayName} from '@thunderid/hooks';
 import {useLogger} from '@thunderid/logger/react';
 import {
   Box,

@@ -17,7 +17,7 @@
  */
 
 import {ResourceAvatar} from '@thunderid/components';
-import {useDataGridLocaleText} from '@thunder/hooks';
+import {useDataGridLocaleText} from '@thunderid/hooks';
 import {getDisplayNameForCode, toFlagEmoji, useGetLanguages} from '@thunderid/i18n';
 import {useLogger} from '@thunderid/logger/react';
 import {Chip, DataGrid, IconButton, ListingTable, Tooltip, useTheme} from '@wso2/oxygen-ui';

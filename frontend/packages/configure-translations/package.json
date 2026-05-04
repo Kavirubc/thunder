@@ -80,7 +80,7 @@
     "@tanstack/react-query": "catalog:",
     "@thunderid/components": "workspace:^",
     "@thunder/contexts": "workspace:^",
-    "@thunder/hooks": "workspace:^",
+    "@thunderid/hooks": "workspace:^",
     "@thunderid/i18n": "workspace:^",
     "@thunderid/logger": "workspace:^",
     "react": "catalog:",

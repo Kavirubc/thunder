@@ -117,7 +117,7 @@ vi.mock('../../contexts/useOrganizationUnit', () => ({
 }));
 
 // Mock useDataGridLocaleText
-vi.mock('@thunder/hooks', () => ({
+vi.mock('@thunderid/hooks', () => ({
   useDataGridLocaleText: () => ({}),
 }));
 

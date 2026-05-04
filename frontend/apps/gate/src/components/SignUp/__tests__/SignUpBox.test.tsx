@@ -66,7 +66,7 @@ vi.mock('@thunder/shared-branding', () => ({
 }));
 
 // Mock useTemplateLiteralResolver
-vi.mock('@thunder/hooks', () => ({
+vi.mock('@thunderid/hooks', () => ({
   useTemplateLiteralResolver: () => ({
     resolve: (key: string) => key,
   }),

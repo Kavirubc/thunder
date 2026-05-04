@@ -73,7 +73,7 @@ vi.mock('react-router', async () => {
 });
 
 // Mock useDataGridLocaleText
-vi.mock('@thunder/hooks', () => ({
+vi.mock('@thunderid/hooks', () => ({
   useDataGridLocaleText: () => ({}),
 }));
 

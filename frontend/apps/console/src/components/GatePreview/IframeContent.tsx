@@ -29,7 +29,7 @@ import {
   type DesignResolveResponse,
   type Stylesheet,
 } from '@thunder/design';
-import {useTemplateLiteralResolver} from '@thunder/hooks';
+import {useTemplateLiteralResolver} from '@thunderid/hooks';
 import {TemplateLiteralType} from '@thunderid/utils';
 import {Box} from '@wso2/oxygen-ui';
 import {useEffect, useMemo, type JSX} from 'react';

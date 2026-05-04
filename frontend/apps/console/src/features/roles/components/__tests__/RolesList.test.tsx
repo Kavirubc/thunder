@@ -36,7 +36,7 @@ vi.mock('react-router', async () => {
     useNavigate: vi.fn(),
   };
 });
-vi.mock('@thunder/hooks', () => ({
+vi.mock('@thunderid/hooks', () => ({
   useDataGridLocaleText: vi.fn(),
 }));
 
@@ -124,7 +124,7 @@ vi.mock('@thunderid/logger/react', () => ({
 
 const {default: useGetRoles} = await import('../../api/useGetRoles');
 const {useNavigate} = await import('react-router');
-const {useDataGridLocaleText} = await import('@thunder/hooks');
+const {useDataGridLocaleText} = await import('@thunderid/hooks');
 
 describe('RolesList', () => {
   let mockNavigate: ReturnType<typeof vi.fn>;
